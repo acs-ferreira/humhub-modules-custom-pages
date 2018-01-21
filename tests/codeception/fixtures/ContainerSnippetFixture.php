@@ -16,5 +16,4 @@ class ContainerSnippetFixture extends ActiveFixture
 
     public $modelClass = 'humhub\modules\custom_pages\models\ContainerSnippet';
     public $dataFile = '@custom_pages/tests/codeception/fixtures/data/containerSnippet.php';
-
 }

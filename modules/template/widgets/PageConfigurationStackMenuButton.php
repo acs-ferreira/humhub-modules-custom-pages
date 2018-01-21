@@ -21,5 +21,4 @@ class PageConfigurationStackMenuButton extends \humhub\components\Widget
         
         return $this->render('pageConfigurationStackMenuButton');
     }
-
 }

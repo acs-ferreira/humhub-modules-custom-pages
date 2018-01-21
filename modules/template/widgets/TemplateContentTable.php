@@ -25,5 +25,4 @@ class TemplateContentTable extends \humhub\components\Widget
             'saved' => $this->saved
         ]);
     }
-
 }

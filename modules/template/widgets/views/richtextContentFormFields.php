@@ -6,7 +6,7 @@ use yii\helpers\Url;
 use yii\helpers\Html;
 
 $id = 'ckeditor_' . $model->id;
-$id .= ($model->id == null) ? preg_replace( "/(\[|\])/","", $model->formName() )   : $model->id;
+$id .= ($model->id == null) ? preg_replace('/(\[|\])/', '', $model->formName())   : $model->id;
 
 $csrfTokenName = Yii::$app->request->csrfParam;
 $csrfToken = Yii::$app->request->csrfToken;
@@ -18,7 +18,7 @@ $uploadUrl = Url::to(['/custom_pages/template/upload/upload-ckeditor-file', 'sgu
 <?= $form->field($model, 'content')->textarea(['id' => $id, 'rows' => 6, 'class' => 'ckeditorInput', 'data-form-name' => $model->formName()])->label(false); ?>
 
 <?php foreach ($model->fileList as $file) : ?>
-    <?= Html::hiddenInput($model->formName().'[fileList][]', $file); ?>
+    <?= Html::hiddenInput($model->formName() . '[fileList][]', $file); ?>
 <?php endforeach; ?>
 
 <script>

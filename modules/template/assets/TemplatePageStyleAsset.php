@@ -7,7 +7,7 @@ use yii\web\AssetBundle;
 class TemplatePageStyleAsset extends AssetBundle
 {
     
-     public $css = [
+    public $css = [
         'css/template-pages.css'
     ];
 
@@ -16,5 +16,4 @@ class TemplatePageStyleAsset extends AssetBundle
         $this->sourcePath = dirname(dirname(__FILE__)) . '/resources';
         parent::init();
     }
-
 }

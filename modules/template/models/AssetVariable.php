@@ -6,7 +6,7 @@ use Yii;
 
 /**
  * This is the model class for table "custom_pages_template_content".
- * 
+ *
  * A OwnerContent instance is used to assign a TemplateElement to a specific
  * Content of a specific type.
  */
@@ -17,10 +17,10 @@ class AssetVariable implements \ArrayAccess
     
     public function get($name)
     {
-        $path = '/'.$name;
+        $path = '/' . $name;
         
         $module = $this->getModule();
-        if($module->isPublished($path)) {
+        if ($module->isPublished($path)) {
             return $this->getModule()->getPublishedUrl($path);
         }
         return '';
@@ -28,7 +28,7 @@ class AssetVariable implements \ArrayAccess
     
     private function getModule()
     {
-        if($this->module == null) {
+        if ($this->module == null) {
             $this->module = Yii::$app->getModule('custom_pages');
         }
         return $this->module;
@@ -58,5 +58,4 @@ class AssetVariable implements \ArrayAccess
     {
         return;
     }
-
 }

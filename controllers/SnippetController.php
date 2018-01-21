@@ -31,15 +31,15 @@ class SnippetController extends AdminController
     
     /**
      * Action for viewing the snippet inline edit view.
-     * 
+     *
      * @return string
      * @throws HttpException if snippet could not be found.
      */
     public function actionEditSnippet()
-    {   
+    {
         $snippet = $this->findById(Yii::$app->request->get('id'));
         
-        if($snippet == null) {
+        if ($snippet == null) {
             throw new HttpException(404, 'Snippet not found!');
         }
         

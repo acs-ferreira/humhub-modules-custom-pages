@@ -19,8 +19,8 @@ use yii\helpers\Url;
 class AdminMenu extends \humhub\widgets\BaseMenu
 {
 
-    public $template = "@humhub/widgets/views/tabMenu";
-    public $type = "adminCustomPagesSubNavigation";
+    public $template = '@humhub/widgets/views/tabMenu';
+    public $type = 'adminCustomPagesSubNavigation';
 
     public function init()
     {
@@ -36,7 +36,7 @@ class AdminMenu extends \humhub\widgets\BaseMenu
             'label' => Yii::t('CustomPagesModule.base', 'Pages'),
             'url' => Url::to(['/custom_pages/admin/pages']),
             'sortOrder' => 100,
-            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'custom_pages' 
+            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'custom_pages'
                     && Yii::$app->controller->id == 'admin'
                     && Yii::$app->controller->action->id != 'index')
         ]);
@@ -46,9 +46,9 @@ class AdminMenu extends \humhub\widgets\BaseMenu
             'label' => Yii::t('CustomPagesModule.base', 'Snippets'),
             'url' => Url::to(['/custom_pages/snippet']),
             'sortOrder' => 200,
-            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'custom_pages' 
+            'isActive' => (Yii::$app->controller->module && Yii::$app->controller->module->id == 'custom_pages'
                     && Yii::$app->controller->id == 'snippet'),
-        ]);  
+        ]);
         
         
         $this->addItem([
@@ -61,5 +61,4 @@ class AdminMenu extends \humhub\widgets\BaseMenu
         
         parent::init();
     }
-
 }

@@ -34,7 +34,7 @@ class CreatePhpPageCest
         $I->selectOption('Page[content]', ['value' => 'test_page']);
         $I->selectOption('Page[navigation_class]', 'TopMenuWidget');
         $I->fillField('Page[sort_order]', '400');
-        $I->selectOption('Page[icon]',  ['value' => 'fa-adn']);
+        $I->selectOption('Page[icon]', ['value' => 'fa-adn']);
         $I->click('Save');
         $I->waitForElementVisible('#topbar-second .fa-adn');
         $I->expectTo('see my new page in the top navigation');

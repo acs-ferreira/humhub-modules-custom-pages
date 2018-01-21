@@ -24,5 +24,4 @@ class EditContentSeperator extends \humhub\components\Widget
             'isAdminEdit' => $this->isAdminEdit
         ]);
     }
-
 }

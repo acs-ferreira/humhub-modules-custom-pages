@@ -36,12 +36,11 @@ class PageUrlRule extends Object implements UrlRuleInterface
     public function createUrl($manager, $route, $params)
     {
         if (in_array($route, $this->defaultRoutes) && isset($params['id'])) {
-
             $route = '';
 
             $urlPart = static::getUrlByPageId($params['id']);
             if ($urlPart !== null) {
-                $url = "p/" . urlencode($urlPart);
+                $url = 'p/' . urlencode($urlPart);
                 unset($params['id']);
 
                 if (!empty($params) && ($query = http_build_query($params)) !== '') {
@@ -59,12 +58,12 @@ class PageUrlRule extends Object implements UrlRuleInterface
     public function parseRequest($manager, $request)
     {
         $pathInfo = $request->getPathInfo();
-        if (substr($pathInfo, 0, 2) == "p/") {
+        if (substr($pathInfo, 0, 2) == 'p/') {
             $parts = explode('/', $pathInfo, 3);
             if (isset($parts[1])) {
                 $page = Page::find()->where(['id' => $parts[1]])->orWhere(['url' => $parts[1]])->one();
                 if ($page !== null) {
-                    if (!isset($parts[2]) || $parts[2] == "") {
+                    if (!isset($parts[2]) || $parts[2] == '') {
                         $parts[2] = $this->defaultRoutes[0];
                     }
 
@@ -80,7 +79,7 @@ class PageUrlRule extends Object implements UrlRuleInterface
 
     /**
      * Gets space url name by given guid
-     * 
+     *
      * @param string $guid
      * @return string|null the space url part
      */
@@ -98,5 +97,4 @@ class PageUrlRule extends Object implements UrlRuleInterface
 
         return null;
     }
-
 }

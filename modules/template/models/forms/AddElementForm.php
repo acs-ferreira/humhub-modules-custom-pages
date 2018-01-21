@@ -21,21 +21,21 @@ class AddElementForm extends TemplateElementForm
 
     /**
      * Owner TemplateId of the new element definition.
-     * 
+     *
      * @var integer
      */
     public $templateId;
 
     /**
      * Content type definition for this element.
-     * 
-     * @var string 
+     *
+     * @var string
      */
     public $type;
     
     /**
      * Default scenario
-     * @var type 
+     * @var type
      */
     public $scenario = 'create';
 
@@ -59,9 +59,9 @@ class AddElementForm extends TemplateElementForm
 
     /**
      * Initializes the form data.
-     * 
+     *
      * Todo: rename because of definition...
-     * 
+     *
      * @param type $templateId
      * @param type $type
      */
@@ -77,7 +77,7 @@ class AddElementForm extends TemplateElementForm
 
     /**
      * Validates and saves the TemplateElement instance and appended files.
-     * 
+     *
      * @return boolean
      */
     public function save()
@@ -90,5 +90,4 @@ class AddElementForm extends TemplateElementForm
             return false;
         }
     }
-
 }

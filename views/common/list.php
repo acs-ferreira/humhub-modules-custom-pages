@@ -24,7 +24,7 @@ $sguid = Yii::$app->request->get('sguid');
             </div>
         </div>
         <br />
-        <?php if (count($pages) != 0): ?>
+        <?php if (count($pages) != 0) : ?>
             <?php $classes = Page::getNavigationClasses(); ?>
             <?php $isMainPage = $pages[0] instanceof Page; ?>
            
@@ -38,8 +38,8 @@ $sguid = Yii::$app->request->get('sguid');
                     <th><?= Yii::t('CustomPagesModule.base', 'Sort Order'); ?></th>
                     <th>&nbsp;</th>
                 </tr>
-                <?php foreach ($pages as $page): ?>
-                 <?php  $editUrl = Url::to(['edit', 'id' => $page->id, 'sguid' => $sguid]) ?>
+                <?php foreach ($pages as $page) : ?>
+                    <?php  $editUrl = Url::to(['edit', 'id' => $page->id, 'sguid' => $sguid]) ?>
                     <tr>
                         <td><i class="fa <?php echo $page->icon; ?>"></i> <?php echo Html::a($page->title, $editUrl); ?></td>
                         <?php if ($isMainPage) : ?>
@@ -53,7 +53,7 @@ $sguid = Yii::$app->request->get('sguid');
                 <?php endforeach; ?>
             </table>
 
-        <?php else: ?>
+        <?php else : ?>
             <div class="alert alert-info" role="alert" style="margin-bottom:0px;">
                 <?php echo Yii::t('CustomPagesModule.views_common_list', 'No {label} entry created yet!', ['label' => $label]); ?>
             </div>

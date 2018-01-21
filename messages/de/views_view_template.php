@@ -6,7 +6,7 @@
  * Time: 02:59
  */
 
-return array (
+return  [
     'Edit Template' => 'Vorlage bearbeiten',
 
-);
+];

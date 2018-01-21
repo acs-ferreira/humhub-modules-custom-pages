@@ -2,7 +2,6 @@
 
 use yii\db\Migration;
 
-
 class m160907_122454_file_content extends Migration
 {
     public function up()

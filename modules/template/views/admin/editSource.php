@@ -40,7 +40,7 @@ $this->registerJsConfig('custom_pages.template.source', [
             <?= Html::a(Yii::t('CustomPagesModule.base', 'Source'), Url::to(['edit-source', 'id' => $model->id])); ?>
         </li>
         <!-- <li>
-            <?// echo Html::a('<i aria-hidden="true" class="fa fa-question-circle"></i> '.Yii::t('CustomPagesModule.base', 'Help'), Url::to(['info', 'id' => $model->id])); ?>
+            <?php // echo Html::a('<i aria-hidden="true" class="fa fa-question-circle"></i> '.Yii::t('CustomPagesModule.base', 'Help'), Url::to(['info', 'id' => $model->id])); ?>
         </li> -->
     </ul>
 
@@ -48,10 +48,10 @@ $this->registerJsConfig('custom_pages.template.source', [
 
         <?php $form = CActiveForm::begin(['enableClientValidation' => false, 'options' => ['id' => 'sourceForm']]); ?>
 
-        <?= $form->field($model, 'source')->textarea(['id' => 'template-form-source', 'rows' => 15, "spellcheck" => "false", 'class' => 'form-control autosize'])->label(false); ?>
+        <?= $form->field($model, 'source')->textarea(['id' => 'template-form-source', 'rows' => 15, 'spellcheck' => 'false', 'class' => 'form-control autosize'])->label(false); ?>
 
         <div class="clearfix">
-            <?= Html::submitButton(Yii::t('CustomPagesModule.base', 'Save'), ['class' => 'btn btn-primary', 'data-ui-loader' => ""]); ?>
+            <?= Html::submitButton(Yii::t('CustomPagesModule.base', 'Save'), ['class' => 'btn btn-primary', 'data-ui-loader' => '']); ?>
             <div class="dropdown pull-right">
                 <button data-action-click="ui.modal.load" data-action-data-type="json" data-action-url="<?= Url::to(['/custom_pages/template/admin/edit-multiple', 'id' => $model->id]) ?>" class="btn btn-primary">
                     <i aria-hidden="true" class="fa fa-pencil"></i>

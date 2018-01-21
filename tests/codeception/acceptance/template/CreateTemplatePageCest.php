@@ -1,7 +1,6 @@
 <?php
 namespace custom_pages\acceptance\template;
 
-
 use custom_pages\AcceptanceTester;
 
 class CreateTemplatePageCest
@@ -82,12 +81,12 @@ class CreateTemplatePageCest
         $I->see('#file');
     }
     
-    private function clickAddElement($I, $type) {
+    private function clickAddElement($I, $type)
+    {
         $I->click('Add Element');
         $I->wait(1);
         
         $I->click($type);
         $I->waitForElementVisible('#templateelement-name');
-        
     }
 }

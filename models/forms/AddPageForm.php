@@ -52,14 +52,14 @@ class AddPageForm extends Model
 
     public function validateType($attribute, $params)
     {
-        if(!$this->isAllowedType($this->type)) {
+        if (!$this->isAllowedType($this->type)) {
             $this->addError('type', Yii::t('CustomPagesModule.base', 'Invalid type selection'));
         }
     }
     
     /**
      * Helper function used by views.
-     * 
+     *
      * @return string
      */
     public function getPageLabel()
@@ -69,25 +69,25 @@ class AddPageForm extends Model
     
     /**
      * Tests if the given type is allowed for the given page class.
-     * 
+     *
      * @param integer $type
      * @return boolean
      */
     public function isAllowedType($type)
     {
-        if($type === Container::TYPE_PHP) {
+        if ($type === Container::TYPE_PHP) {
             $settings = new SettingsForm();
-            if(!$settings->phpPagesActive) {
+            if (!$settings->phpPagesActive) {
                 return false;
             }
         }
 
-        return in_array($type ,$this->getPageInstance()->getContentTypes());
+        return in_array($type, $this->getPageInstance()->getContentTypes());
     }
     
     /**
      * Checks if there are allowed templates available for the given page class.
-     * 
+     *
      * @return boolean
      */
     public function showTemplateType()
@@ -97,12 +97,12 @@ class AddPageForm extends Model
     
     /**
      * Returns the singleton page instance.
-     * 
+     *
      * @return integer
      */
     public function getPageInstance()
     {
-        if($this->_instance == null) {
+        if ($this->_instance == null) {
             $this->_instance = Yii::createObject($this->class);
         }
         return $this->_instance;
@@ -112,5 +112,4 @@ class AddPageForm extends Model
     {
         return $this->getPageInstance()->hasAllowedPhpViews();
     }
-
 }

@@ -16,7 +16,7 @@
  *
  * NOTE, this file must be saved in UTF-8 encoding.
  */
-return array (
+return  [
   '<strong>Create</strong> page' => '',
   '<strong>Edit</strong> page' => '',
   'Content' => '',
@@ -26,4 +26,4 @@ return array (
   'Save' => '',
   'Sort Order' => '',
   'URL' => '',
-);
+];

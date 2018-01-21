@@ -26,12 +26,12 @@ class TemplateEditorElement extends \humhub\widgets\JsWidget
     public $templateContent;
 
     /**
-     * @var array render options for this editor element. 
+     * @var array render options for this editor element.
      */
     public $renderOptions = [];
     
     /**
-     * @var array render html attributes. 
+     * @var array render html attributes.
      */
     public $renderAttributes = [];
 

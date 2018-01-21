@@ -28,17 +28,17 @@ class TemplateElementAdminRow extends \humhub\components\Widget
     public $form;
     
     /**
-     * @var boolean determines if the output should contain a saved user feedback 
+     * @var boolean determines if the output should contain a saved user feedback
      */
     public $saved;
 
     public function run()
     {
-        if($this->form != null) {
+        if ($this->form != null) {
             $this->model = $this->form->element;
         }
         
-        if($this->saved) {
+        if ($this->saved) {
             Yii::$app->getSession()->setFlash('data-saved', Yii::t('CustomPagesModule.base', 'Saved'));
         }
         
@@ -47,5 +47,4 @@ class TemplateElementAdminRow extends \humhub\components\Widget
             'saved' => $this->saved
         ]);
     }
-
 }

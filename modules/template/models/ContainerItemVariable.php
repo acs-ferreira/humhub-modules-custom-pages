@@ -7,7 +7,7 @@ use yii\base\Model;
 class ContainerItemVariable extends Model
 {
     /**
-     * @var ContainerContentItem 
+     * @var ContainerContentItem
      */
     public $item;
     

@@ -21,7 +21,7 @@ class TemplateCache
 
     /**
      * Flushes all cache entries related to a given template (identified by $templateId)
-     * 
+     *
      * @param integer $templateId
      */
     public static function flushByTemplateId($templateId)
@@ -38,7 +38,7 @@ class TemplateCache
 
     /**
      * Flushes all cache entries related to a given $ownerContent instance.
-     * 
+     *
      * @param OwnerContent $ownerContent
      * @return type
      */
@@ -62,7 +62,7 @@ class TemplateCache
 
     /**
      * Flushes all cache entries related to an template instance.
-     * 
+     *
      * @param TemplateInstance $owner
      */
     public static function flushByTemplateInstance(TemplateInstance $owner)
@@ -72,7 +72,7 @@ class TemplateCache
 
     /**
      * Returns the template key for a given template instance.
-     * 
+     *
      * @param TemplateInstance $owner
      * @return string
      */
@@ -103,7 +103,7 @@ class TemplateCache
 
     /**
      * Sets the cache entry for a given $owner instance.
-     * 
+     *
      * @param type $owner
      * @param type $content
      * @return type
@@ -112,5 +112,4 @@ class TemplateCache
     {
         return Yii::$app->cache->set(self::getKey($owner), $content);
     }
-
 }

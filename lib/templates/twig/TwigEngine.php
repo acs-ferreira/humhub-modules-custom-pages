@@ -1,6 +1,7 @@
 <?php
 
 namespace humhub\modules\custom_pages\lib\templates\twig;
+
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2015 HumHub GmbH & Co. KG
@@ -20,7 +21,7 @@ class TwigEngine implements TemplateEngine
 {
     /**
      * @inerhitdoc
-     * 
+     *
      * @param type $template template name
      * @param array $content array input [elementName => content]
      * @return string
@@ -29,7 +30,6 @@ class TwigEngine implements TemplateEngine
     {
         $loader = new DatabaseTwigLoader();
         $twig = new \Twig_Environment($loader, ['autoescape' => false, 'debug' => true]);
-        return $twig->render($template ,$content);
+        return $twig->render($template, $content);
     }
-
 }

@@ -5,7 +5,7 @@ namespace humhub\modules\custom_pages\modules\template\models;
 use Yii;
 use humhub\modules\custom_pages\modules\template\widgets\TemplateContentFormFields;
 
- class RichtextContent extends TemplateContentActiveRecord
+class RichtextContent extends TemplateContentActiveRecord
 {
     public static $label = 'Richtext';
      
@@ -49,17 +49,18 @@ use humhub\modules\custom_pages\modules\template\widgets\TemplateContentFormFiel
         return self::$label;
     }
     
-    public function copy() {
+    public function copy()
+    {
         $clone = new RichtextContent();
         $clone->content = $this->content;
         return $clone;
     }
 
     public function render($options = [])
-    {   
-        if($this->isEditMode($options)) {
+    {
+        if ($this->isEditMode($options)) {
             return $this->wrap('div', $this->purify($this->content), $options);
-        } 
+        }
         
         return $this->purify($this->content);
     }
@@ -77,5 +78,4 @@ use humhub\modules\custom_pages\modules\template\widgets\TemplateContentFormFiel
             'model' => $this
         ]);
     }
-
 }

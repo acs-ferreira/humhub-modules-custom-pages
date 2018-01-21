@@ -16,7 +16,7 @@
  *
  * NOTE, this file must be saved in UTF-8 encoding.
  */
-return array (
+return  [
   'Create new Page' => '',
   'Custom Pages' => '',
   'HTML' => '',
@@ -31,4 +31,4 @@ return array (
   'Type' => '',
   'User Account Menu (Settings)' => '',
   'Without adding to navigation (Direct link)' => '',
-);
+];

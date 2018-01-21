@@ -22,7 +22,7 @@ class ContainerController extends ContentContainerController
 
     /**
      * @inheritdoc
-     * @var boolean 
+     * @var boolean
      */
     public $hideSidebar = true;
 
@@ -47,9 +47,9 @@ class ContainerController extends ContentContainerController
 
     /**
      * Is used to view/render a ContainerPage of a certain page content type.
-     * 
+     *
      * This action expects an page id as request parameter.
-     * 
+     *
      * @return type
      * @throws HttpException if the page was not found
      */
@@ -64,11 +64,11 @@ class ContainerController extends ContentContainerController
         $this->getView()->pageTitle = $page->title;
 
         if ($page->type == Container::TYPE_IFRAME) {
-            return $this->render('iframe', array('page' => $page, 'url' => $page->page_content));
+            return $this->render('iframe', ['page' => $page, 'url' => $page->page_content]);
         } elseif ($page->type == Container::TYPE_LINK) {
             return $this->redirect($page->page_content);
         } elseif ($page->type == Container::TYPE_MARKDOWN) {
-            return $this->render('markdown', array('page' => $page, 'md' => $page->page_content));
+            return $this->render('markdown', ['page' => $page, 'md' => $page->page_content]);
         } elseif ($page->type == Container::TYPE_TEMPLATE) {
             return $this->viewTemplatePage($page);
         } elseif ($page->type == Container::TYPE_PHP) {
@@ -108,7 +108,7 @@ class ContainerController extends ContentContainerController
     /**
      * Action for adding new ContainerPages.
      * This function can be redelcared by subclasses for supporting other container page types.
-     * 
+     *
      * @return type
      */
     public function actionAdd($type = null)
@@ -129,7 +129,7 @@ class ContainerController extends ContentContainerController
     /**
      * Returns the class name of the ContainerPage name. This function can be redelcared by subclasses
      * for supporting other container page types.
-     * 
+     *
      * @return string
      */
     protected function getPageClassName()
@@ -140,7 +140,7 @@ class ContainerController extends ContentContainerController
     /**
      * Action for editing ContainerPage models.
      * This action expects either an page id or a content type for creating new pages of a given content type.
-     * 
+     *
      * @param type $type
      * @param type $id
      * @return type
@@ -175,7 +175,7 @@ class ContainerController extends ContentContainerController
 
     /**
      * Action for deleting ContainerPage models with a given $id.
-     * 
+     *
      * @param type $id page id
      * @return type
      */
@@ -195,7 +195,7 @@ class ContainerController extends ContentContainerController
     /**
      * Searches for a ContainerPage with the given $id.
      * This action expects either an page id or a content type for creating new pages of a given content type.
-     * 
+     *
      * @param type $id
      * @return type
      */
@@ -214,5 +214,4 @@ class ContainerController extends ContentContainerController
             throw new \yii\web\HttpException('400', 'Access denied!');
         }
     }
-
 }

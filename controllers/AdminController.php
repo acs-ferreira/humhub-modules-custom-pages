@@ -15,15 +15,15 @@ use yii\web\HttpException;
 
 /**
  * AdminController used to manage global (non container) pages of type humhub\modules\custom_pages\models\Page.
- * 
- * This Controller is designed to be overwritten by other controller for supporting other page types. 
- * 
+ *
+ * This Controller is designed to be overwritten by other controller for supporting other page types.
+ *
  * The following functions have to be redeclared in order to support another page type:
- * 
+ *
  *  - findAll()
  *  - getPageClassName()
  *  - findById()
- * 
+ *
  * @author luke, buddha
  */
 class AdminController extends Controller
@@ -31,7 +31,7 @@ class AdminController extends Controller
 
     /**
      * Returns a view which lists all available pages of a given type.
-     * 
+     *
      * @see getPageClassName() which returns the actual page type.
      * @return string view
      */
@@ -39,7 +39,7 @@ class AdminController extends Controller
     {
         $model = new SettingsForm();
 
-        if($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $this->view->saved();
         }
 
@@ -89,17 +89,17 @@ class AdminController extends Controller
     /**
      * Action for editing pages. This action expects either an page id or a content type for
      * creating new pages of a given content type.
-     * 
+     *
      * @see getPageClassName() which returns the actual page type.
      * @param integer $type
      * @param integer $id
      * @return string
      */
     public function actionEdit($type = null, $id = null)
-    {   
+    {
         $page = $this->findByid($id);
 
-        if($page == null && $type == null) {
+        if ($page == null && $type == null) {
             throw new HttpException(400, 'Invalid request data!');
         }
         
@@ -125,7 +125,7 @@ class AdminController extends Controller
 
     /**
      * Deltes the page with a given $id.
-     * 
+     *
      * @param integer $id page id
      * @return string
      */
@@ -143,7 +143,7 @@ class AdminController extends Controller
     /**
      * Returns all page instances. This method has to be overwritten by subclasses
      * supporting another page type.
-     * 
+     *
      * @return Page[]
      */
     protected function findAll()
@@ -154,9 +154,9 @@ class AdminController extends Controller
     /**
      * Returns the class name of the supported page type.
      * Default page class is humhub\modules\custom_pages\models\Page.
-     * 
+     *
      * This method has to be overwritten by subclasses supporting another page type.
-     * 
+     *
      * @return string
      */
     protected function getPageClassName()
@@ -166,7 +166,7 @@ class AdminController extends Controller
     
     /**
      * Returns a page by a given $id.
-     * 
+     *
      * @param integer $id page id.
      * @return Page
      */
@@ -174,5 +174,4 @@ class AdminController extends Controller
     {
         return Page::findOne(['id' => $id]);
     }
-
 }

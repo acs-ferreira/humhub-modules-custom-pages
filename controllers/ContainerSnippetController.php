@@ -12,10 +12,11 @@ use yii\web\HttpException;
  * @author buddha
  */
 class ContainerSnippetController extends ContainerController
-{   
+{
+
     /**
      * Action for viewing the snippet inline edit view.
-     * 
+     *
      * @return type
      * @throws HttpException if snippet could not be found.
      */
@@ -25,7 +26,7 @@ class ContainerSnippetController extends ContainerController
         
         $containerSnippet = ContainerSnippet::findOne(['id' => Yii::$app->request->get('id')]);
         
-        if($containerSnippet == null) {
+        if ($containerSnippet == null) {
             throw new HttpException(404, 'Snippet not found!');
         }
         
@@ -55,7 +56,7 @@ class ContainerSnippetController extends ContainerController
     /**
      * @inheritdoc
      */
-    protected function findPageById($id = null) 
+    protected function findPageById($id = null)
     {
         return ContainerSnippet::find()->contentContainer($this->contentContainer)->where(['custom_pages_container_snippet.id' => $id])->one();
     }

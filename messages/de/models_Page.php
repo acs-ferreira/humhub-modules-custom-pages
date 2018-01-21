@@ -6,7 +6,7 @@
  * Time: 01:32
  */
 
-return array (
+return  [
     'Only visible for admins' => 'Nur für Admins sichtbar',
     'Content' => 'Inhalt',
     'Navigation' => 'Navigation',
@@ -14,4 +14,4 @@ return array (
     'page' => 'Inhalt',
     'snippet' => 'Schnipsel',
     'layout' => 'Layout',
-);
+];

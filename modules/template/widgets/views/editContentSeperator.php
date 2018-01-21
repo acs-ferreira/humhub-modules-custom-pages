@@ -8,8 +8,8 @@
 
 ?>
 
-<?php if($isAdminEdit) : ?>
+<?php if ($isAdminEdit) : ?>
     <hr class="hr-text" data-content="<?= Yii::t('CustomPagesModule.base', 'Default Content'); ?>">
-<?php else: ?>
+<?php else : ?>
     <hr class="hr-text" data-content="<?= Yii::t('CustomPagesModule.base', 'Content'); ?>">
 <?php endif; ?>

@@ -41,8 +41,8 @@ class Twig_Environment
     protected $unaryOperators;
     protected $binaryOperators;
     protected $templateClassPrefix = '__TwigTemplate_';
-    protected $functionCallbacks = array();
-    protected $filterCallbacks = array();
+    protected $functionCallbacks = [];
+    protected $filterCallbacks = [];
     protected $staging;
 
     private $originalCache;
@@ -88,7 +88,7 @@ class Twig_Environment
      * @param Twig_LoaderInterface $loader  A Twig_LoaderInterface instance
      * @param array                $options An array of options
      */
-    public function __construct(Twig_LoaderInterface $loader = null, $options = array())
+    public function __construct(Twig_LoaderInterface $loader = null, $options = [])
     {
         if (null !== $loader) {
             $this->setLoader($loader);
@@ -96,7 +96,7 @@ class Twig_Environment
             @trigger_error('Not passing a Twig_LoaderInterface as the first constructor argument of Twig_Environment is deprecated since version 1.21.', E_USER_DEPRECATED);
         }
 
-        $options = array_merge(array(
+        $options = array_merge([
             'debug' => false,
             'charset' => 'UTF-8',
             'base_template_class' => 'Twig_Template',
@@ -105,7 +105,7 @@ class Twig_Environment
             'cache' => false,
             'auto_reload' => null,
             'optimizations' => -1,
-        ), $options);
+        ], $options);
 
         $this->debug = (bool) $options['debug'];
         $this->charset = strtoupper($options['charset']);
@@ -313,7 +313,7 @@ class Twig_Environment
         $key .= json_encode(array_keys($this->extensions));
         $key .= function_exists('twig_template_get_attributes');
 
-        return $this->templateClassPrefix.hash('sha256', $key).(null === $index ? '' : '_'.$index);
+        return $this->templateClassPrefix . hash('sha256', $key) . (null === $index ? '' : '_' . $index);
     }
 
     /**
@@ -342,7 +342,7 @@ class Twig_Environment
      * @throws Twig_Error_Syntax  When an error occurred during compilation
      * @throws Twig_Error_Runtime When an error occurred during rendering
      */
-    public function render($name, array $context = array())
+    public function render($name, array $context = [])
     {
         return $this->loadTemplate($name)->render($context);
     }
@@ -357,7 +357,7 @@ class Twig_Environment
      * @throws Twig_Error_Syntax  When an error occurred during compilation
      * @throws Twig_Error_Runtime When an error occurred during rendering
      */
-    public function display($name, array $context = array())
+    public function display($name, array $context = [])
     {
         $this->loadTemplate($name)->display($context);
     }
@@ -400,7 +400,7 @@ class Twig_Environment
                     $this->cache->write($key, $content);
                 }
 
-                eval('?>'.$content);
+                eval('?>' . $content);
             }
         }
 
@@ -427,10 +427,10 @@ class Twig_Environment
     {
         $name = sprintf('__string_template__%s', hash('sha256', uniqid(mt_rand(), true), false));
 
-        $loader = new Twig_Loader_Chain(array(
-            new Twig_Loader_Array(array($name => $template)),
+        $loader = new Twig_Loader_Chain([
+            new Twig_Loader_Array([$name => $template]),
             $current = $this->getLoader(),
-        ));
+        ]);
 
         $this->setLoader($loader);
         try {
@@ -491,7 +491,7 @@ class Twig_Environment
     public function resolveTemplate($names)
     {
         if (!is_array($names)) {
-            $names = array($names);
+            $names = [$names];
         }
 
         foreach ($names as $name) {
@@ -521,7 +521,7 @@ class Twig_Environment
     {
         @trigger_error(sprintf('The %s method is deprecated since version 1.18.3 and will be removed in Twig 2.0.', __METHOD__), E_USER_DEPRECATED);
 
-        $this->loadedTemplates = array();
+        $this->loadedTemplates = [];
     }
 
     /**
@@ -671,7 +671,7 @@ class Twig_Environment
             $compiled = $this->compile($this->parse($this->tokenize($source, $name)), $source);
 
             if (isset($source[0])) {
-                $compiled .= '/* '.str_replace(array('*/', "\r\n", "\r", "\n"), array('*//* ', "\n", "\n", "*/\n/* "), $source)."*/\n";
+                $compiled .= '/* ' . str_replace(['*/', "\r\n", "\r", "\n"], ['*//* ', "\n", "\n", "*/\n/* "], $source) . "*/\n";
             }
 
             return $compiled;
@@ -882,7 +882,7 @@ class Twig_Environment
      */
     public function getTags()
     {
-        $tags = array();
+        $tags = [];
         foreach ($this->getTokenParsers()->getParsers() as $parser) {
             if ($parser instanceof Twig_TokenParserInterface) {
                 $tags[$parser->getTag()] = $parser;
@@ -974,7 +974,7 @@ class Twig_Environment
             $pattern = str_replace('\\*', '(.*?)', preg_quote($pattern, '#'), $count);
 
             if ($count) {
-                if (preg_match('#^'.$pattern.'$#', $name, $matches)) {
+                if (preg_match('#^' . $pattern . '$#', $name, $matches)) {
                     array_shift($matches);
                     $filter->setArguments($matches);
 
@@ -1133,7 +1133,7 @@ class Twig_Environment
             $pattern = str_replace('\\*', '(.*?)', preg_quote($pattern, '#'), $count);
 
             if ($count) {
-                if (preg_match('#^'.$pattern.'$#', $name, $matches)) {
+                if (preg_match('#^' . $pattern . '$#', $name, $matches)) {
                     array_shift($matches);
                     $function->setArguments($matches);
 
@@ -1294,7 +1294,7 @@ class Twig_Environment
      */
     protected function initGlobals()
     {
-        $globals = array();
+        $globals = [];
         foreach ($this->extensions as $name => $extension) {
             if (!$extension instanceof Twig_Extension_GlobalsInterface) {
                 $m = new ReflectionMethod($extension, 'getGlobals');
@@ -1327,13 +1327,13 @@ class Twig_Environment
         }
 
         $this->extensionInitialized = true;
-        $this->parsers = new Twig_TokenParserBroker(array(), array(), false);
-        $this->filters = array();
-        $this->functions = array();
-        $this->tests = array();
-        $this->visitors = array();
-        $this->unaryOperators = array();
-        $this->binaryOperators = array();
+        $this->parsers = new Twig_TokenParserBroker([], [], false);
+        $this->filters = [];
+        $this->functions = [];
+        $this->tests = [];
+        $this->visitors = [];
+        $this->unaryOperators = [];
+        $this->binaryOperators = [];
 
         foreach ($this->extensions as $extension) {
             $this->initExtension($extension);

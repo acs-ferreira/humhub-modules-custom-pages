@@ -31,5 +31,4 @@ class EditElementModal extends \humhub\components\Widget
             'isAdminEdit' => $this->isAdminEdit
         ]);
     }
-
 }

@@ -21,5 +21,4 @@ class Module extends \humhub\components\Module
      * @inheritdoc
      */
     public $controllerNamespace = 'humhub\modules\custom_pages\modules\template\controllers';
-
 }

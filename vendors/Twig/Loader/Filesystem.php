@@ -19,16 +19,16 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
     /** Identifier of the main namespace. */
     const MAIN_NAMESPACE = '__main__';
 
-    protected $paths = array();
-    protected $cache = array();
-    protected $errorCache = array();
+    protected $paths = [];
+    protected $cache = [];
+    protected $errorCache = [];
 
     /**
      * Constructor.
      *
      * @param string|array $paths A path or an array of paths where to look for templates
      */
-    public function __construct($paths = array())
+    public function __construct($paths = [])
     {
         if ($paths) {
             $this->setPaths($paths);
@@ -44,7 +44,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
      */
     public function getPaths($namespace = self::MAIN_NAMESPACE)
     {
-        return isset($this->paths[$namespace]) ? $this->paths[$namespace] : array();
+        return isset($this->paths[$namespace]) ? $this->paths[$namespace] : [];
     }
 
     /**
@@ -68,10 +68,10 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
     public function setPaths($paths, $namespace = self::MAIN_NAMESPACE)
     {
         if (!is_array($paths)) {
-            $paths = array($paths);
+            $paths = [$paths];
         }
 
-        $this->paths[$namespace] = array();
+        $this->paths[$namespace] = [];
         foreach ($paths as $path) {
             $this->addPath($path, $namespace);
         }
@@ -88,7 +88,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
     public function addPath($path, $namespace = self::MAIN_NAMESPACE)
     {
         // invalidate the cache
-        $this->cache = $this->errorCache = array();
+        $this->cache = $this->errorCache = [];
 
         if (!is_dir($path)) {
             throw new Twig_Error_Loader(sprintf('The "%s" directory does not exist.', $path));
@@ -108,7 +108,7 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
     public function prependPath($path, $namespace = self::MAIN_NAMESPACE)
     {
         // invalidate the cache
-        $this->cache = $this->errorCache = array();
+        $this->cache = $this->errorCache = [];
 
         if (!is_dir($path)) {
             throw new Twig_Error_Loader(sprintf('The "%s" directory does not exist.', $path));
@@ -197,12 +197,12 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
         }
 
         foreach ($this->paths[$namespace] as $path) {
-            if (is_file($path.'/'.$shortname)) {
-                if (false !== $realpath = realpath($path.'/'.$shortname)) {
+            if (is_file($path . '/' . $shortname)) {
+                if (false !== $realpath = realpath($path . '/' . $shortname)) {
                     return $this->cache[$name] = $realpath;
                 }
 
-                return $this->cache[$name] = $path.'/'.$shortname;
+                return $this->cache[$name] = $path . '/' . $shortname;
             }
         }
 
@@ -225,10 +225,10 @@ class Twig_Loader_Filesystem implements Twig_LoaderInterface, Twig_ExistsLoaderI
             $namespace = substr($name, 1, $pos - 1);
             $shortname = substr($name, $pos + 1);
 
-            return array($namespace, $shortname);
+            return [$namespace, $shortname];
         }
 
-        return array($default, $name);
+        return [$default, $name];
     }
 
     protected function normalizeName($name)

@@ -25,5 +25,4 @@ class SwitchAssetBundle extends AssetBundle
         $this->sourcePath = dirname(dirname(__FILE__)) . '/resources/js/switch';
         parent::init();
     }
-
 }

@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   'Allows to add pages (markdown, iframe or links) to the space navigation' => '',
   'Create new Page' => 'Lag en ny Side',
   'Custom Pages' => '',
@@ -16,4 +16,4 @@ return array (
   'Type' => 'Type',
   'User Account Menu (Settings)' => 'Bruker konto meny (Innstillinger)',
   'Without adding to navigation (Direct link)' => '',
-);
+];

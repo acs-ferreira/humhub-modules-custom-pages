@@ -16,7 +16,7 @@ class TemplatePage extends \humhub\widgets\JsWidget
     /**
      * @inheritdoc
      */
-    public $id = "templatePageRoot";
+    public $id = 'templatePageRoot';
 
     /**
      * @inheritdoc
@@ -44,7 +44,7 @@ class TemplatePage extends \humhub\widgets\JsWidget
     public $page;
 
     /**
-     * @var \humhub\modules\content\components\ContentContainerActiveRecord 
+     * @var \humhub\modules\content\components\ContentContainerActiveRecord
      */
     public $contentContainer;
 
@@ -94,7 +94,7 @@ class TemplatePage extends \humhub\widgets\JsWidget
     public function getAttributes()
     {
         //TODO: fullscreen flag
-        if($this->page instanceof Page && $this->page->navigation_class !== Page::NAV_CLASS_ACCOUNTNAV) {
+        if ($this->page instanceof Page && $this->page->navigation_class !== Page::NAV_CLASS_ACCOUNTNAV) {
             $cssClass = 'container ';
         } else {
             $cssClass = '';
@@ -130,5 +130,4 @@ class TemplatePage extends \humhub\widgets\JsWidget
     {
         return ($this->contentContainer) ? $this->contentContainer->createUrl($route) : \yii\helpers\Url::to([$route]);
     }
-
 }

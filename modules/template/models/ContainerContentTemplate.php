@@ -7,8 +7,9 @@ namespace humhub\modules\custom_pages\modules\template\models;
  *
  * The followings are the available columns in table 'custom_pages_page':
  */
- class ContainerContentTemplate extends \humhub\components\ActiveRecord
-{    
+class ContainerContentTemplate extends \humhub\components\ActiveRecord
+{
+
     /**
      * @return string the associated database table name
      */

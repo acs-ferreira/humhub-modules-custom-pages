@@ -20,7 +20,7 @@ class TemplateAdminMenu extends \humhub\widgets\BaseMenu
     /**
      * @inheritdoc
      */
-    public $template = "@humhub/widgets/views/subTabMenu";
+    public $template = '@humhub/widgets/views/subTabMenu';
 
     /**
      * @inheritdoc
@@ -51,5 +51,4 @@ class TemplateAdminMenu extends \humhub\widgets\BaseMenu
         
         parent::init();
     }
-
 }

@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   'Allows to add pages (markdown, iframe or links) to the space navigation' => '',
   'Create new Page' => '',
   'Custom Pages' => 'Saját oldalak',
@@ -16,4 +16,4 @@ return array (
   'Type' => '',
   'User Account Menu (Settings)' => '',
   'Without adding to navigation (Direct link)' => '',
-);
+];

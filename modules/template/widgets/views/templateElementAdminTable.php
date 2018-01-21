@@ -11,8 +11,8 @@
         <tbody id="templateElements">
             <?php $elements = $template->elements ?>
         
-            <?php if(count($elements) > 0): ?>
-                <?php foreach($elements as $element):?>
+            <?php if (count($elements) > 0) : ?>
+                <?php foreach ($elements as $element) :?>
                     <?=  humhub\modules\custom_pages\modules\template\widgets\TemplateElementAdminRow::widget(['model' => $element, 'saved' => $saved]); ?>
                 <?php endforeach;?>
             <?php endif; ?>

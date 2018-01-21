@@ -31,5 +31,4 @@ class AddItemEditForm extends EditItemForm
         $this->owner->save();
         return parent::save(false);
     }
-   
 }

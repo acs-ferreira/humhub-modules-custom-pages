@@ -25,7 +25,7 @@ class AddContentTypeRow extends \yii\base\Widget
     
     public function run()
     {
-        if(!$this->hide) {
+        if (!$this->hide) {
             return $this->render('addContentTypeRow', [
                 'type' => $this->type,
                 'label' => $this->label,

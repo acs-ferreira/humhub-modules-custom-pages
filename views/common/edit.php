@@ -47,7 +47,7 @@ $deleteUrl = Url::to(['delete', 'id' => $page->id, 'sguid' => $sguid]);
         
         <?= PageIconSelect::widget(['page' => $page]) ?>
 
-        <?php if ($page->isType(Container::TYPE_LINK) || $page->isType(Container::TYPE_IFRAME)): ?>
+        <?php if ($page->isType(Container::TYPE_LINK) || $page->isType(Container::TYPE_IFRAME)) : ?>
             <?= $form->field($page, $page->getPageContentProperty())->textInput(['class' => 'form-control'])->label($page->getAttributeLabel('targetUrl')); ?>
             <div class="help-block">
                 <?= Yii::t('CustomPagesModule.views_common_edit', 'e.g. http://www.example.de') ?>
@@ -61,14 +61,14 @@ $deleteUrl = Url::to(['delete', 'id' => $page->id, 'sguid' => $sguid]);
             </div>
         <?php endif; ?>
 
-        <?php if ($page->isType(Container::TYPE_HTML)): ?>
+        <?php if ($page->isType(Container::TYPE_HTML)) : ?>
             <?= $form->field($page, $page->getPageContentProperty())->textarea(['id' => 'html_content', 'class' => 'form-control', 'rows' => '15']); ?>
-        <?php elseif ($page->isType(Container::TYPE_TEMPLATE)): ?>
+        <?php elseif ($page->isType(Container::TYPE_TEMPLATE)) : ?>
             <?= $form->field($page, 'templateId')->dropDownList($page->getAllowedTemplateSelection(), ['value' => $page->getTemplateId(), 'disabled' => !$page->isNewRecord]) ?>
-        <?php elseif ($page->isType(Container::TYPE_MARKDOWN)): ?>
+        <?php elseif ($page->isType(Container::TYPE_MARKDOWN)) : ?>
             <?= $form->field($page, $page->getPageContentProperty())->textarea(['id' => 'markdownField', 'class' => 'form-control', 'rows' => '15']); ?>
             <?= MarkdownEditor::widget(['fieldId' => 'markdownField']); ?>
-        <?php elseif ($page->isType(Container::TYPE_PHP)): ?>
+        <?php elseif ($page->isType(Container::TYPE_PHP)) : ?>
             <?=  $form->field($page, $page->getPageContentProperty())->dropDownList($page->getAllowedPhpViewFileSelection()) ?>
         <?php endif; ?>
 
@@ -100,7 +100,7 @@ $deleteUrl = Url::to(['delete', 'id' => $page->id, 'sguid' => $sguid]);
             <?= Html::a(Yii::t('CustomPagesModule.views_common_edit', 'Delete'), $deleteUrl, ['class' => 'btn btn-danger', 'data-ui-loader' => '', 'data-pjax-prevent' => '']); ?>
         <?php endif; ?>
 
-        <?php if ($page->isType(Container::TYPE_TEMPLATE) && !$page->isNewRecord): ?>
+        <?php if ($page->isType(Container::TYPE_TEMPLATE) && !$page->isNewRecord) : ?>
             <?php if ($page instanceof Snippet) : ?>
                 <?php $url = Url::to(['/custom_pages/snippet/edit-snippet', 'id' => $page->id]); ?>
             <?php elseif ($page instanceof ContainerSnippet) : ?>

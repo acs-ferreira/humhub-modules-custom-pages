@@ -34,7 +34,7 @@ SnippetContent::widget([
     'content' => $content,
     'navigation' => $navigation
 ]);
-?>
+
 
 
 

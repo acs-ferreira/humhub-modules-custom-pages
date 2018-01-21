@@ -102,5 +102,4 @@ class TextContent extends TemplateContentActiveRecord
                     'model' => $this
         ]);
     }
-
 }

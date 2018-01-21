@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   'Allows to add pages (markdown, iframe or links) to the space navigation' => 'Ermöglicht das Anlegen eigener Seiten in der Navigation.',
   'Create new Page' => 'Neue Seite erstellen',
     'Edit Page' => 'Seite bearbeiten',
@@ -71,4 +71,4 @@ return array (
     'Will embed the the result of a given url as an iframe element.' => 'Wird den Inhalt einer URL als iFrame Element einbinden.',
     'Templates allow you to define combinable page fragments with inline edit functionality.' => 'Vorlagen erlauben es Ihnen kombinierbare Seiten Elemente mit bearbeitbarer inline Funktionalität zu definieren',
     'Adds plain HTML content to your site.' => 'Reinen HTML Inhalt hinzufügen',
-);
+];

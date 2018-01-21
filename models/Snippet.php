@@ -12,7 +12,7 @@ use humhub\modules\custom_pages\modules\template\models\Template;
  * This is the model class for table "custom_pages_container_snipped".
  *
  * Snippets are custom sidebar panels which can be added to the directory/dashboard sidebar.
- * 
+ *
  * The followings are the available columns in table 'custom_pages_container_page':
  * @property integer $id
  * @property integer $type
@@ -50,7 +50,8 @@ class Snippet extends ActiveRecord implements CustomContentContainer
     /**
      * @inheritdoc
      */
-    public function getPageContentProperty() {
+    public function getPageContentProperty()
+    {
         return 'content';
     }
 
@@ -135,5 +136,4 @@ class Snippet extends ActiveRecord implements CustomContentContainer
         $settings = new SettingsForm();
         return $settings->phpGlobalSnippetPath;
     }
-
 }

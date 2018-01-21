@@ -36,7 +36,7 @@ class PageConfigurationButton extends \humhub\components\Widget
         $sguid = ($space != null) ? $space->guid : null;
         $canEdit = TemplatePagePermission::canEdit();
         
-        $ownerModel = ($space != null) ? ContainerPage::className() : Page::className();   
+        $ownerModel = ($space != null) ? ContainerPage::className() : Page::className();
         
         
         $templateInstance = TemplateInstance::findOne(['object_model' => $ownerModel ,'object_id' => $pageId]);
@@ -49,5 +49,4 @@ class PageConfigurationButton extends \humhub\components\Widget
             'templateInstance' => $templateInstance
         ]);
     }
-
 }

@@ -6,7 +6,7 @@ use Yii;
 use humhub\modules\custom_pages\modules\template\widgets\TemplateContentFormFields;
 use humhub\modules\file\models\File;
 
- class FileContent extends TemplateContentActiveRecord
+class FileContent extends TemplateContentActiveRecord
 {
     public static $label = 'File';
     
@@ -57,8 +57,8 @@ use humhub\modules\file\models\File;
     {
         $files = File::findByRecord($this);
 
-        foreach($files as $file) {
-            if($file->guid !== $this->file_guid) {
+        foreach ($files as $file) {
+            if ($file->guid !== $this->file_guid) {
                 $file->delete();
             }
         }
@@ -87,15 +87,16 @@ use humhub\modules\file\models\File;
         return ($file != null) ? $file->getUrl() : null;
     }
     
-    public function copy() {
+    public function copy()
+    {
         $clone = $this->createCopy();
         $clone->file_guid = $this->file_guid;
         return $clone;
     }
 
     public function render($options = [])
-    {   
-        if($this->hasFile()) {
+    {
+        if ($this->hasFile()) {
             return $this->getFile()->getUrl();
         }
         return '';
@@ -114,5 +115,4 @@ use humhub\modules\file\models\File;
             'model' => $this
         ]);
     }
-
 }

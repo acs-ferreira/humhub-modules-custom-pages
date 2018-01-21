@@ -30,7 +30,7 @@ class TemplateTest extends HumHubDbTestCase
         $template->type = Template::TYPE_LAYOUT;
         $this->assertFalse($template->save());
 
-        $template->source = "Whatever";
+        $template->source = 'Whatever';
         $this->assertTrue($template->save());
     }
 
@@ -53,11 +53,10 @@ class TemplateTest extends HumHubDbTestCase
         $template->scenario = 'source';
         $template->name = 'testTemplate2';
         $template->description = 'My Test Template';
-        $template->source = "Whatever";
+        $template->source = 'Whatever';
         $template->type = Template::TYPE_CONTAINER;
         $template->save();
 
         $this->assertEquals('Whatever', $template->render());
     }
-
 }

@@ -4,7 +4,7 @@ namespace humhub\modules\custom_pages\models;
 
 /**
  * Interface for container classes.
- * 
+ *
  * @author buddha
  */
 interface CustomContentContainer

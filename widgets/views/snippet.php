@@ -2,13 +2,13 @@
 
 use yii\helpers\Html;
 
-$snippedId = 'custom-snippet-'.$model->id;
+$snippedId = 'custom-snippet-' . $model->id;
 
 $cssClass = ($model->hasAttribute('cssClass') && !empty($model->cssClass)) ? $model->cssClass :  'custom-pages-snippet';
 
 $extraOptions = '';
-foreach($navigation as $navigationOption) {
-    $extraOptions .= '<li>'.$navigationOption.'</li>';
+foreach ($navigation as $navigationOption) {
+    $extraOptions .= '<li>' . $navigationOption . '</li>';
 }
 
 ?>

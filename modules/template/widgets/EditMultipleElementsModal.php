@@ -25,5 +25,4 @@ class EditMultipleElementsModal extends \humhub\components\Widget
             'title' => $this->title
         ]);
     }
-
 }

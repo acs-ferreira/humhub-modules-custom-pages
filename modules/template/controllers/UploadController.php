@@ -26,7 +26,7 @@ class UploadController extends Controller
     }
 
     /**
-     * Used as adapter action for ckeditor file 
+     * Used as adapter action for ckeditor file
      * @return type
      */
     public function actionUploadCkeditorFile($CKEditorFuncNum)
@@ -45,5 +45,4 @@ class UploadController extends Controller
         $script .= "window.parent.ckeditorAddUploadedFile('$guid');";
         return \yii\helpers\Html::tag('script', $script, ['type' => 'text/javascript']);
     }
-
 }

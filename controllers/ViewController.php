@@ -37,9 +37,9 @@ class ViewController extends Controller
     
       /**
      * Is used to view/render a Page of a certain page content type.
-     * 
+     *
      * This action expects an page id as request parameter.
-     * 
+     *
      * @return string
        * @throws HttpException if the page was not found
      */
@@ -56,11 +56,11 @@ class ViewController extends Controller
         }
 
         if ($page->navigation_class == Page::NAV_CLASS_ACCOUNTNAV) {
-            $this->subLayout = "@humhub/modules/user/views/account/_layout";
+            $this->subLayout = '@humhub/modules/user/views/account/_layout';
         }
         
         if ($page->navigation_class == Page::NAV_CLASS_DIRECTORY) {
-            $this->subLayout = "@humhub/modules/custom_pages/views/layouts/_directory_layout";
+            $this->subLayout = '@humhub/modules/custom_pages/views/layouts/_directory_layout';
         }
         
         $this->getView()->pageTitle = $page->title;
@@ -83,7 +83,7 @@ class ViewController extends Controller
         } elseif ($page->type == Container::TYPE_PHP) {
                 return $this->render('php', ['page' => $page]);
         } elseif ($page->type == Container::TYPE_IFRAME) {
-        }  else {
+        } else {
             throw new HttpException('500', 'Invalid page type!');
         }
     }

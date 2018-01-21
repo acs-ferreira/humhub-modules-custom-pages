@@ -18,6 +18,3 @@ return [
         'containerSnippet' => 'tests\codeception\fixtures\modules\custom_pages\template\ContainerSnippetFixture',
     ]
 ];
-
-
-

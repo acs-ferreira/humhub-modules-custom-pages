@@ -6,7 +6,7 @@ use yii\helpers\Url;
 
 /**
  * This is the model class for table "custom_pages_template_container_content_item".
- * 
+ *
  * @var $template_id int
  * @var $container_content_id int
  * @var $title string

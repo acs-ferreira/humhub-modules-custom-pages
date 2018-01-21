@@ -35,11 +35,11 @@ class FileDownloadContent extends TemplateContentActiveRecord
      */
     public function init()
     {
-        if($this->showFileinfo === null) {
+        if ($this->showFileinfo === null) {
             $this->showFileinfo = 1;
         }
 
-        if($this->showIcon === null) {
+        if ($this->showIcon === null) {
             $this->showIcon = 1;
         }
     }
@@ -87,8 +87,8 @@ class FileDownloadContent extends TemplateContentActiveRecord
     {
         $files = File::findByRecord($this);
 
-        foreach($files as $file) {
-            if($file->guid !== $this->file_guid) {
+        foreach ($files as $file) {
+            if ($file->guid !== $this->file_guid) {
                 $file->delete();
             }
         }
@@ -120,12 +120,13 @@ class FileDownloadContent extends TemplateContentActiveRecord
     public function getDownloadUrl()
     {
         $file = $this->getFile();
-        if($file) {
+        if ($file) {
             return Url::to(['/file/file/download', 'guid' => $file->guid]);
         }
     }
     
-    public function copy() {
+    public function copy()
+    {
         $clone = $this->createCopy();
         $clone->file_guid = $this->file_guid;
         $clone->title = $this->title;
@@ -137,8 +138,8 @@ class FileDownloadContent extends TemplateContentActiveRecord
     }
 
     public function render($options = [])
-    {   
-        if($this->hasFile()) {
+    {
+        if ($this->hasFile()) {
             $file =  $this->getFile();
             $options['htmlOptions'] = [
                 'href' => $this->getDownloadUrl(),
@@ -153,15 +154,15 @@ class FileDownloadContent extends TemplateContentActiveRecord
             
             $fileInfo = FileHelper::getFileInfos($file);
             
-            if($this->showIcon) {
-                $options['htmlOptions']['class'] .= ' mime '.$fileInfo['mimeIcon'];
+            if ($this->showIcon) {
+                $options['htmlOptions']['class'] .= ' mime ' . $fileInfo['mimeIcon'];
             }
             
-            if($this->showFileinfo) {
-                $content .= Html::tag('small', ' - '.$fileInfo['size_format'], ['class' => 'file-fileInfo']);
+            if ($this->showFileinfo) {
+                $content .= Html::tag('small', ' - ' . $fileInfo['size_format'], ['class' => 'file-fileInfo']);
             }
             
-            if($this->isEditMode($options)) {
+            if ($this->isEditMode($options)) {
                 return $this->wrap('a', $content, $options);
             } else {
                 return Html::tag('a', $content, $options['htmlOptions']);
@@ -183,5 +184,4 @@ class FileDownloadContent extends TemplateContentActiveRecord
             'model' => $this
         ]);
     }
-
 }

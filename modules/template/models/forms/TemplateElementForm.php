@@ -23,21 +23,21 @@ class TemplateElementForm extends \yii\base\Model
     
     /**
      * The TemplateElement instance.
-     * 
-     * @var \humhub\modules\custom_pages\modules\template\models\TemplateElement 
+     *
+     * @var \humhub\modules\custom_pages\modules\template\models\TemplateElement
      */
     public $element;
 
     /**
      * Default content instance.
-     * 
-     * @var \humhub\modules\custom_pages\modules\template\models\TemplateContentActiveRecord 
+     *
+     * @var \humhub\modules\custom_pages\modules\template\models\TemplateContentActiveRecord
      */
     public $content;
     
     /**
      * OwnerContent use_default flag
-     * @var boolean 
+     * @var boolean
      */
     public $use_default;
 
@@ -66,10 +66,10 @@ class TemplateElementForm extends \yii\base\Model
     public function setScenario($value)
     {
         parent::setScenario($value);
-        if($this->element != null) {
+        if ($this->element != null) {
             $this->element->scenario = $value;
         }
-        if($this->content != null) {
+        if ($this->content != null) {
             $this->content->scenario = $value;
         }
     }
@@ -87,7 +87,7 @@ class TemplateElementForm extends \yii\base\Model
         return $result || $this->element->load($data, $formName);
     }
 
-    public function validate($attributeNames = NULL, $clearErrors = true)
+    public function validate($attributeNames = null, $clearErrors = true)
     {
         return parent::validate() && $this->element->validate();
     }

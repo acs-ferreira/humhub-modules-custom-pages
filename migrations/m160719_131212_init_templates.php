@@ -16,7 +16,7 @@ class m160719_131212_init_templates extends Migration
             'engine' => 'varchar(100) NOT NULL',
             'description' => 'text DEFAULT NULL',
             'source' => 'TEXT DEFAULT NULL',
-            'allow_for_spaces' => Schema::TYPE_BOOLEAN. ' DEFAULT 0',
+            'allow_for_spaces' => Schema::TYPE_BOOLEAN . ' DEFAULT 0',
             'type' => 'varchar(100) NOT NULL',
             'created_at' => 'datetime DEFAULT NULL',
             'created_by' => 'int(11) DEFAULT NULL',
@@ -48,7 +48,7 @@ class m160719_131212_init_templates extends Migration
             'owner_id' => 'int(11) NOT NULL',
             'content_type' => 'varchar(100) NOT NULL',
             'content_id' => 'int(11) NOT NULL',
-            'use_default' => Schema::TYPE_BOOLEAN. ' DEFAULT 0'
+            'use_default' => Schema::TYPE_BOOLEAN . ' DEFAULT 0'
         ], '');
         
         /**
@@ -71,7 +71,7 @@ class m160719_131212_init_templates extends Migration
             'height' => 'int(10) DEFAULT NULL',
             'width' => 'int(10) DEFAULT NULL',
             'style' => 'varchar(200) DEFAULT NULL',
-            'is_default' => Schema::TYPE_BOOLEAN. ' DEFAULT 0'
+            'is_default' => Schema::TYPE_BOOLEAN . ' DEFAULT 0'
         ], '');
         
         /**
@@ -100,9 +100,9 @@ class m160719_131212_init_templates extends Migration
          */
         $this->createTable('custom_pages_template_container_content_definition', [
             'id' => 'pk',
-            'allow_multiple' => Schema::TYPE_BOOLEAN. ' DEFAULT 0',
-            'is_inline' => Schema::TYPE_BOOLEAN. ' DEFAULT 0',
-            'is_default' => Schema::TYPE_BOOLEAN. ' DEFAULT 0'
+            'allow_multiple' => Schema::TYPE_BOOLEAN . ' DEFAULT 0',
+            'is_inline' => Schema::TYPE_BOOLEAN . ' DEFAULT 0',
+            'is_default' => Schema::TYPE_BOOLEAN . ' DEFAULT 0'
         ], '');
         
         /**

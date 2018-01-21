@@ -20,9 +20,11 @@ class LayoutAdminController extends AdminController
     /**
      * @inheritdoc
      */
-    public function init() {
-        $this->indexHelp = Yii::t('CustomPagesModule.modules_template_controller_LayoutAdminController', 
-                'Here you can manage your template layouts. Layouts are the root of your template pages and can not be combined with other templates.');
+    public function init()
+    {
+        $this->indexHelp = Yii::t(
+            'CustomPagesModule.modules_template_controller_LayoutAdminController',
+            'Here you can manage your template layouts. Layouts are the root of your template pages and can not be combined with other templates.'
+        );
     }
-    
 }

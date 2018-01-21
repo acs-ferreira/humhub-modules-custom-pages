@@ -21,5 +21,4 @@ class TemplatePageEditStackMenuButton extends \humhub\components\Widget
         
         return $this->render('templatePageEditStackMenuButton');
     }
-
 }

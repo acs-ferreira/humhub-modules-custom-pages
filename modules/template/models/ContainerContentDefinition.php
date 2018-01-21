@@ -35,7 +35,7 @@ class ContainerContentDefinition extends ContentDefinition
         return array_merge(parent::attributeLabels(), [
             'allow_multiple' => Yii::t('CustomPagesModule.modules_template_models_CotnainerContent', 'Allow multiple items?'),
             'allowedTemplateSelection' => Yii::t('CustomPagesModule.modules_template_models_CotnainerContent', 'Allowed Templates'),
-            'is_inline' => Yii::t('CustomPagesModule.modules_template_models_CotnainerContent','Render items as inline-blocks within the inline editor?')
+            'is_inline' => Yii::t('CustomPagesModule.modules_template_models_CotnainerContent', 'Render items as inline-blocks within the inline editor?')
         ]);
     }
 

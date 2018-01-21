@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   '<strong>Create</strong> page' => '<strong>Kreiraj</strong> stranicu',
   '<strong>Edit</strong> page' => '<strong>Uredi</strong> stranicu',
   'Content' => 'Sadržaj',
@@ -10,4 +10,4 @@ return array (
   'Save' => 'Spremi',
   'Sort Order' => 'Poredaj red',
   'URL' => 'URL',
-);
+];

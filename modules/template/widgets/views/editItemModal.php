@@ -29,17 +29,17 @@ use yii\widgets\ActiveForm;
                         <small class="pull-right">
                             <span class="label label-success"><?= $contentItem->ownerContent->label ?></span>
                         </small>
-                        <?php if ($contentItem->content->isNewRecord): ?>
+                        <?php if ($contentItem->content->isNewRecord) : ?>
                             <small class="pull-right" style="margin-right: 2px">
                                 <span class="label label-warning"><?= Yii::t('CustomPagesModule.widgets_views_editMultipleElements', 'Empty') ?></span>
                             </small>
                         <?php endif; ?>
-                        <?php if ($isContainer && $contentItem->content->definition->allow_multiple): ?>
+                        <?php if ($isContainer && $contentItem->content->definition->allow_multiple) : ?>
                             <small class="pull-right" style="margin-right: 2px">
                                 <span class="label label-success"><?= Yii::t('CustomPagesModule.widgets_views_editMultipleElements', 'Multiple') ?></span>
                             </small>
                         <?php endif; ?>
-                        <?php if ($isContainer && $contentItem->content->definition->is_inline): ?>
+                        <?php if ($isContainer && $contentItem->content->definition->is_inline) : ?>
                             <small class="pull-right" style="margin-right: 2px">
                                 <span class="label label-success"><?= Yii::t('CustomPagesModule.widgets_views_editMultipleElements', 'Inline') ?></span>
                             </small>

@@ -15,5 +15,4 @@ class OwnerContentFixture extends ActiveFixture
 
     public $modelClass = 'humhub\modules\custom_pages\modules\template\models\OwnerContent';
     public $dataFile = '@custom_pages/tests/codeception/fixtures/data/ownerContent.php';
-
 }

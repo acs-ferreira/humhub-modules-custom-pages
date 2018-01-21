@@ -36,11 +36,11 @@ class EditMultipleElementsForm extends \yii\base\Model
     // Todo: is the templateId even needed since the woner should have contain a templateid ...
     public function setOwner($ownerModel, $ownerId, $templateId = null)
     {
-        if(!is_string($ownerModel)) {
+        if (!is_string($ownerModel)) {
             $templateId = $ownerId;
             $this->owner = $ownerModel;
         } else {
-            $this->owner = call_user_func($ownerModel."::findOne", ['id' => $ownerId]);
+            $this->owner = call_user_func($ownerModel . '::findOne', ['id' => $ownerId]);
         }
         
         $this->setTemplate($templateId);
@@ -56,9 +56,9 @@ class EditMultipleElementsForm extends \yii\base\Model
     {
         $ownerContentArr = $this->template->getContentElements($this->owner);
 
-        foreach ($ownerContentArr as $ownerContent) {            
+        foreach ($ownerContentArr as $ownerContent) {
             $contentItem = new ContentFormItem([
-                'ownerContent' => $ownerContent, 
+                'ownerContent' => $ownerContent,
                 'element' => $this->getElement($ownerContent->element_name),
                 'editDefault' => $this->editDefault,
                 'scenario' => $this->scenario]);
@@ -75,10 +75,10 @@ class EditMultipleElementsForm extends \yii\base\Model
         }
     }
 
-    public function load($data, $formName = NULL)
+    public function load($data, $formName = null)
     {
         // This prevents items without elements from beeing rejected
-        if(parent::load($data) && empty($this->contentMap)) {
+        if (parent::load($data) && empty($this->contentMap)) {
             return true;
         }
         
@@ -87,7 +87,7 @@ class EditMultipleElementsForm extends \yii\base\Model
         // If one of the content was loaded we expect a successful form submit
         foreach ($this->contentMap as $key => $contentItem) {
             /** @var $contentItem ContentFormItem */
-            if($contentItem->load($data)) {
+            if ($contentItem->load($data)) {
                 $result = true;
             }
         }
@@ -98,11 +98,11 @@ class EditMultipleElementsForm extends \yii\base\Model
     public function validate($attributeNames = null, $clearErrors = true)
     {
         // Default content is not mandatory
-        if($this->scenario === 'edit-admin') {
+        if ($this->scenario === 'edit-admin') {
             return true;
         }
         
-        //Todo: implement multiedit content validation. Skip validation if no values are set. 
+        //Todo: implement multiedit content validation. Skip validation if no values are set.
         /*$result = true;
         foreach ($this->contentMap as $key => $contentItem) {
             if(!$contentItem->validate()) {
@@ -128,7 +128,7 @@ class EditMultipleElementsForm extends \yii\base\Model
                 $contentItem->save($this->owner);
             }
             $transaction->commit();
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             $transaction->rollBack();
             throw $e;
         }

@@ -1,6 +1,7 @@
 <?php
 
 namespace humhub\modules\custom_pages\lib\templates\twig;
+
 /**
  * @link https://www.humhub.org/
  * @copyright Copyright (c) 2015 HumHub GmbH & Co. KG
@@ -39,7 +40,7 @@ class DatabaseTwigLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderInt
     public function getSource($name)
     {
         $template = Template::findOne(['name' => $name]);
-        if($template == null) {
+        if ($template == null) {
             throw new \Twig_Error_Loader(sprintf('Template "%s" does not exist.', $name));
         }
         return $template->source;
@@ -51,9 +52,9 @@ class DatabaseTwigLoader implements \Twig_LoaderInterface, \Twig_ExistsLoaderInt
     public function isFresh($name, $time)
     {
          $template = Template::findOne(['name' => $name]);
-         if($template == null) {
-             return false;
-         }
+        if ($template == null) {
+            return false;
+        }
          
          return $template->created_at <= $time;
     }

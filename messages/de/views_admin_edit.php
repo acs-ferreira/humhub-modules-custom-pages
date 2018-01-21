@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
 
   '<strong>Create</strong> page' => '<strong>Seite</strong> erstellen',
   '<strong>Edit</strong> page' => '<strong>Seite</strong> bearbeiten',
@@ -14,4 +14,4 @@ return array (
     'page' => 'Inhalt',
     'snippet' => 'Schnipsel',
     'layout' => 'Layout',
-);
+];

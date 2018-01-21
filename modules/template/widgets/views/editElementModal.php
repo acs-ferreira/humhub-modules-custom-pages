@@ -11,18 +11,18 @@ use yii\helpers\Html;
     <?php $form = CActiveForm::begin(); ?>
         <div class="modal-body">
             <div class="clearfix">
-                <?php if(!$model->element->isNewRecord) : ?>
+                <?php if (!$model->element->isNewRecord) : ?>
                     #<strong><?= Html::encode($model->element->name) ?></strong>
                     <br />
-                 <?php endif; ?>
+                <?php endif; ?>
                 <small class="pull-right">
                     <span class="label label-success"><?= $model->label ?></span>
                 </small>
             </div>
 
-            <?php if($model->element->isNewRecord) : ?>
+            <?php if ($model->element->isNewRecord) : ?>
                 <?= $form->field($model->element, 'name')->textInput(); ?>
-            <?php else: ?>
+            <?php else : ?>
                 <div style="display:none">
                     <?= $form->field($model->element, 'name')->hiddenInput()->label(false); ?>
                 </div>
@@ -30,7 +30,7 @@ use yii\helpers\Html;
 
             <?= $form->field($model->element, 'title')->textInput(); ?>
             
-            <?php if(false) : ?>
+            <?php if (false) : ?>
                 <?= $form->field($model, 'use_default')->checkbox(['style' => 'margin: 100px']); ?>
             <?php endif; ?>
 
@@ -41,7 +41,7 @@ use yii\helpers\Html;
         </div>
         <div class="modal-footer">
             
-            <?php if(!$model->content->isNewRecord && $resetUrl != null) : ?>
+            <?php if (!$model->content->isNewRecord && $resetUrl != null) : ?>
                 <button class="btn btn-danger pull-left" style="background:transparent" ><?= Yii::t('CustomPagesModule.base', 'Reset'); ?></button>
             <?php endif; ?>
                 
@@ -51,7 +51,7 @@ use yii\helpers\Html;
                 
             <button class="btn btn-default" data-dismiss="modal"><?= Yii::t('CustomPagesModule.base', 'Cancel'); ?></button>
             
-            <?php if(!$model->content->isNewRecord && $resetUrl != null) : ?>
+            <?php if (!$model->content->isNewRecord && $resetUrl != null) : ?>
                 <button data-action-click="reset" data-action-url="<?= $resetUrl ?>" data-action-target="#templatePageRoot"  class="btn btn-danger pull-right" data-ui-loader>
                     <?= Yii::t('CustomPagesModule.base', 'Reset'); ?>
                 </button>

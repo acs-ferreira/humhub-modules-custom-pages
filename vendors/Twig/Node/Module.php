@@ -24,7 +24,7 @@ class Twig_Node_Module extends Twig_Node
     public function __construct(Twig_NodeInterface $body, Twig_Node_Expression $parent = null, Twig_NodeInterface $blocks, Twig_NodeInterface $macros, Twig_NodeInterface $traits, $embeddedTemplates, $filename)
     {
         // embedded templates are set as attributes so that they are only visited once by the visitors
-        parent::__construct(array(
+        parent::__construct([
             'parent' => $parent,
             'body' => $body,
             'blocks' => $blocks,
@@ -35,11 +35,11 @@ class Twig_Node_Module extends Twig_Node
             'constructor_start' => new Twig_Node(),
             'constructor_end' => new Twig_Node(),
             'class_end' => new Twig_Node(),
-        ), array(
+        ], [
             'filename' => $filename,
             'index' => null,
             'embedded_templates' => $embeddedTemplates,
-        ), 1);
+        ], 1);
     }
 
     public function setIndex($index)
@@ -64,8 +64,7 @@ class Twig_Node_Module extends Twig_Node
 
         $this->compileClassHeader($compiler);
 
-        if (
-            count($this->getNode('blocks'))
+        if (count($this->getNode('blocks'))
             || count($this->getNode('traits'))
             || null === $this->getNode('parent')
             || $this->getNode('parent') instanceof Twig_Node_Expression_Constant
@@ -131,8 +130,8 @@ class Twig_Node_Module extends Twig_Node
         $compiler
             ->write("\n\n")
             // if the filename contains */, add a blank to avoid a PHP parse error
-            ->write('/* '.str_replace('*/', '* /', $this->getAttribute('filename'))." */\n")
-            ->write('class '.$compiler->getEnvironment()->getTemplateClass($this->getAttribute('filename'), $this->getAttribute('index')))
+            ->write('/* ' . str_replace('*/', '* /', $this->getAttribute('filename')) . " */\n")
+            ->write('class ' . $compiler->getEnvironment()->getTemplateClass($this->getAttribute('filename'), $this->getAttribute('index')))
             ->raw(sprintf(" extends %s\n", $compiler->getEnvironment()->getBaseTemplateClass()))
             ->write("{\n")
             ->indent()
@@ -215,7 +214,7 @@ class Twig_Node_Module extends Twig_Node
 
                 for ($i = 0; $i < $countTraits; ++$i) {
                     $compiler
-                        ->write(sprintf('$_trait_%s_blocks'.($i == $countTraits - 1 ? '' : ',')."\n", $i))
+                        ->write(sprintf('$_trait_%s_blocks' . ($i == $countTraits - 1 ? '' : ',') . "\n", $i))
                     ;
                 }
 
@@ -339,7 +338,7 @@ class Twig_Node_Module extends Twig_Node
             }
 
             if (!count($nodes)) {
-                $nodes = new Twig_Node(array($nodes));
+                $nodes = new Twig_Node([$nodes]);
             }
 
             foreach ($nodes as $node) {

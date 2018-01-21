@@ -16,12 +16,12 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
     const SCENARIO_EDIT_ADMIN = 'edit-admin';
 
     /**
-     * @var string the formname of this model used for loading form data. 
+     * @var string the formname of this model used for loading form data.
      */
     private $formName;
 
     /**
-     * @var ContainerContentDefinition instance of this template 
+     * @var ContainerContentDefinition instance of this template
      */
     private $definitionInstance;
 
@@ -32,12 +32,12 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
     public $definitionPostData;
 
     /**
-     * @var string definition model class used by content types with definition 
+     * @var string definition model class used by content types with definition
      */
     public $definitionModel;
 
     /**
-     * @var array attached files used when creating/saving the record 
+     * @var array attached files used when creating/saving the record
      */
     public $fileList = [];
 
@@ -59,7 +59,7 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
     /**
      * Copies the values of this content type instance.
      * This function can initiate the copy by using `createCopy`.
-     * 
+     *
      * @see TemplateContentActiveRecord::createCopy()
      * @return TemplateContentActiveRecord instance copy.
      */
@@ -155,7 +155,7 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
      * Returns the ContainerContentDefinition instance of this instance. +
      * This function will create an empty definition instance if this content type has an definitionModel and
      * does not have an related definition_id.
-     * 
+     *
      * @return ContainerContentDefinition the definition instance.
      */
     public function getDefinition()
@@ -169,7 +169,7 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
         }
 
         if ($this->definition_id != null) {
-            $this->definitionInstance = call_user_func($this->definitionModel . "::findOne", ['id' => $this->definition_id]);
+            $this->definitionInstance = call_user_func($this->definitionModel . '::findOne', ['id' => $this->definition_id]);
         }
 
         // Create empty definition instance
@@ -212,7 +212,7 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
         if ($this->isDefinitionContent() && $definition->validate() && $definition->hasValues()) {
             $definition->save(false);
             $this->definition_id = $definition->getPrimaryKey();
-        } else if ($this->isDefinitionContent() && !$definition->isNewRecord && !$definition->hasValues() && $this->scenario === self::SCENARIO_EDIT_ADMIN) {
+        } elseif ($this->isDefinitionContent() && !$definition->isNewRecord && !$definition->hasValues() && $this->scenario === self::SCENARIO_EDIT_ADMIN) {
             // If we reset the default definition to an empty state we remove the definition settings, which will allow the content to define own definitions
             self::updateAll(['definition_id' => null], ['definition_id' => $definition->id]);
             $definition->delete();
@@ -228,7 +228,7 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
     public function afterSave($insert, $changedAttributes)
     {
         parent::afterSave($insert, $changedAttributes);
-        if(!$this->filesSaved) {
+        if (!$this->filesSaved) {
             $this->filesSaved = true;
             $this->saveFiles();
         }
@@ -318,5 +318,4 @@ abstract class TemplateContentActiveRecord extends ActiveRecord
         }
         return isset($options[$key]) ? strval($options[$key]) : $default;
     }
-
 }

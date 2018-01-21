@@ -99,5 +99,4 @@ class Module extends \humhub\modules\content\components\ContentContainerModule
         require_once $autoloader;
         \Twig_Autoloader::register();
     }
-
 }

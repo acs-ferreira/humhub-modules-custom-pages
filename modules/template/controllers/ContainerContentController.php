@@ -33,10 +33,10 @@ class ContainerContentController extends \humhub\components\Controller
 
     /**
      * This action is used for empty ContainerContent instances, which means there is only a default CotnainerContent for the given owner.
-     * 
+     *
      * This action accepts an $ownerContentId, which is the id of the default OwnerContent instance,
      * and an owner definition ($ownerModel, $ownerId), which defines the actual owner of the element.
-     * 
+     *
      * @param string $ownerModel
      * @param integer $ownerId
      * @param integer $ownerContentId
@@ -69,11 +69,11 @@ class ContainerContentController extends \humhub\components\Controller
 
     /**
      * This action is used to add new ContainerContentItems to an element.
-     * 
+     *
      * This action accepts either an $ownerContentId or an $ownerContent instance of type OwnerContent.
-     * 
+     *
      * Note: The given ownerContent has to be the actual OwnerContent and not a default OwnerContent.
-     * 
+     *
      * @param integer $ownerContentId id of actual ownerContent
      * @param OwnerContent $ownerContent actual (non default) ownerContent instance
      * @return array
@@ -107,8 +107,8 @@ class ContainerContentController extends \humhub\components\Controller
     /**
      * Creates a selection array in form of 'template.id' => 'template.name' for all allowed Templates of the
      * given ContainerContent instance.
-     * 
-     * @param \humhub\modules\custom_pages\modules\template\models\ContainerContent $containerContent 
+     *
+     * @param \humhub\modules\custom_pages\modules\template\models\ContainerContent $containerContent
      * @return array
      */
     protected function getAllowedTemplateSelection($containerContent)
@@ -124,13 +124,13 @@ class ContainerContentController extends \humhub\components\Controller
     /**
      * This action handles the second step of the add item process and is responsible
      * for rendering and handling the item edit form.
-     * 
-     * This function requires an 
-     * 
+     *
+     * This function requires an
+     *
      * - OwnerContent - provided either as $ownerContentId or $ownerContent instance.
      * - Template - provided as post/get templateId or as $itemTemplate instance.
-     * 
-     * 
+     *
+     *
      * @param integer $ownerContentId id of the actual OwnerContent instance.
      * @param type $ownerContent instance of the actual OwnerContent.
      * @param integer $templateId item template id.
@@ -187,7 +187,7 @@ class ContainerContentController extends \humhub\components\Controller
 
     /**
      * This action is used to edit an container item.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -214,7 +214,7 @@ class ContainerContentController extends \humhub\components\Controller
 
     /**
      * This action is used to delete container items.
-     * 
+     *
      * @param type $itemId item id
      * @param type $ownerContentId content owner id for renderint the new result
      * @return type
@@ -239,7 +239,7 @@ class ContainerContentController extends \humhub\components\Controller
 
     /**
      * Action for moving an containeritem position.
-     * 
+     *
      * @param type $ownerContentId
      * @param type $itemId
      * @param type $step
@@ -265,5 +265,4 @@ class ContainerContentController extends \humhub\components\Controller
             'output' => $variable->render(true)
         ];
     }
-
 }

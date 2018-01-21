@@ -18,7 +18,7 @@ use yii\helpers\Url;
             <small>
                 <span class="label label-warning"><?= Yii::t('CustomPagesModule.base', 'Empty') ?></span>
             </small>
-        <?php else: ?>
+        <?php else : ?>
             <small>
                 <span class="label btn-success"><?= Yii::t('CustomPagesModule.base', 'Default') ?></span>
             </small>

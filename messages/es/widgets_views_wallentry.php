@@ -1,4 +1,4 @@
 <?php
-return array (
+return  [
   'Open page...' => 'Abrir página...',
-);
+];

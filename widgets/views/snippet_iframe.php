@@ -10,7 +10,7 @@ if ($contentContainer != null) {
 }
 
 $navigation = (!$canEdit) ? [] : [
-    '<a href="'.$editUrl.'" class="panel-collapse"><i class="fa fa-pencil"></i>' . Yii::t('CustomPagesModule.base', 'Edit') . '</a>'
+    '<a href="' . $editUrl . '" class="panel-collapse"><i class="fa fa-pencil"></i>' . Yii::t('CustomPagesModule.base', 'Edit') . '</a>'
 ];
 ?>
 

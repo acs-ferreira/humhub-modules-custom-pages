@@ -61,7 +61,7 @@ class Container extends Behavior
      */
     public function defaultAttributeLabels()
     {
-        if($this->isType(Container::TYPE_PHP)) {
+        if ($this->isType(Container::TYPE_PHP)) {
             $contentLabel = Yii::t('CustomPagesModule.models_Page', 'View');
         } else {
             $contentLabel = Yii::t('CustomPagesModule.components_Container', 'Content');
@@ -121,13 +121,13 @@ class Container extends Behavior
      */
     public function validatePhpType($attribute, $params)
     {
-        if($this->isType(self::TYPE_PHP)) {
+        if ($this->isType(self::TYPE_PHP)) {
             $settigns = new SettingsForm();
-            if($this->owner->isNewRecord && !$settigns->phpPagesActive) {
+            if ($this->owner->isNewRecord && !$settigns->phpPagesActive) {
                 throw new HttpException(403);
             }
 
-            if(!$this->validatePhpViewFile()) {
+            if (!$this->validatePhpViewFile()) {
                 $this->owner->addError($this->owner->getPageContentProperty(), Yii::t('CustomPagesModule.components_Container', 'Invalid view file selection!'));
             }
         }
@@ -152,11 +152,11 @@ class Container extends Behavior
      */
     public function getPhpViewFilePath()
     {
-        if($this->isType(self::TYPE_PHP)) {
+        if ($this->isType(self::TYPE_PHP)) {
             $viewFiles = $this->getAllowedPhpViewFileSelection(true);
             $viewName = Html::getAttributeValue($this->owner, $this->owner->getPageContentProperty());
 
-            if(array_key_exists($viewName, $viewFiles)) {
+            if (array_key_exists($viewName, $viewFiles)) {
                 return $this->getPhpViewPath(basename($viewFiles[$viewName]), true);
             }
         }
@@ -204,7 +204,7 @@ class Container extends Behavior
      */
     public function getPhpViewPath($view = '', $alias = false)
     {
-        $path = rtrim($this->owner->getPhpViewPath(), '/') . '/'.$view;
+        $path = rtrim($this->owner->getPhpViewPath(), '/') . '/' . $view;
         return ($alias) ? $path : Yii::getAlias($path);
     }
 
@@ -268,9 +268,9 @@ class Container extends Behavior
     }
     public function getTemplateId()
     {
-        if($this->templateId == null) {
+        if ($this->templateId == null) {
             $templateInstance = TemplateInstance::findByOwner($this->owner);
-            if($templateInstance) {
+            if ($templateInstance) {
                 $this->owner->templateId = $templateInstance->template_id;
             }
         }

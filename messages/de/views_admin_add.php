@@ -16,9 +16,9 @@
  *
  * NOTE: this file must be saved in UTF-8 encoding.
  */
-return array(
+return [
     '<strong>Add</strong> new {pageType}' => '{pageType} <strong>neu</strong> hinzufügen',
     'page' => 'Inhalt',
     'snippet' => 'Schnipsel',
     'layout' => 'Layout',
-);
+];

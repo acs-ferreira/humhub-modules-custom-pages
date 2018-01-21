@@ -44,12 +44,11 @@ class EditItemForm extends EditMultipleElementsForm
     
     public function save()
     {
-        if(parent::save(false)) {
+        if (parent::save(false)) {
             $this->owner->title = $this->title;
             $this->owner->save();
         }
 
         return true;
     }
-   
 }

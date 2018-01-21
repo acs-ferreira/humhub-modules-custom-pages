@@ -23,5 +23,4 @@ class SourceEditorAsset extends AssetBundle
         $this->sourcePath = dirname(dirname(__FILE__)) . '/resources';
         parent::init();
     }
-
 }

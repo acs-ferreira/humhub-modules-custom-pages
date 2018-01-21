@@ -6,12 +6,12 @@
  * Time: 02:30
  */
 
-return array (
+return  [
     'Save' => 'Speichern',
     'Type' => 'Typ',
     'Create new {type}' => '{type} erstellen',
     'Edit template \'{templateName}\'' => 'Vorlage \'{templateName}\' bearbeiten',
-	'page' => 'Inhalt',
+    'page' => 'Inhalt',
     'snippet' => 'Schnipsel',
     'layout' => 'Layout',
-);
+];

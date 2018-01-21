@@ -13,9 +13,9 @@ class m160907_175706_default_templates extends Migration
     public function up()
     {
         /**
-         * 
+         *
          * Two column template
-         * 
+         *
          */
         $twoColumnTemplateId = $this->insertTwoColumnTemplate();
         // Insert elements
@@ -45,9 +45,9 @@ class m160907_175706_default_templates extends Migration
             ]);
         
         /**
-         * 
+         *
          * One Column Template
-         * 
+         *
          */
         $oneColumnTemplateId = $this->insertOneColumnTemplate();
         
@@ -56,7 +56,7 @@ class m160907_175706_default_templates extends Migration
         
         // Insert default content definition
         $this->insertSilent('custom_pages_template_container_content_definition', ['allow_multiple' => 1, 'is_inline' => 0, 'is_default' => 1]);
-        $this->insertSilent('custom_pages_template_container_content', ['definition_id' => $this->db->getLastInsertID()]);  
+        $this->insertSilent('custom_pages_template_container_content', ['definition_id' => $this->db->getLastInsertID()]);
         $this->insertSilent('custom_pages_template_owner_content', [
                 'element_name' => 'content',
                 'owner_model' => Template::className(),
@@ -66,9 +66,9 @@ class m160907_175706_default_templates extends Migration
             ]);
 
         /**
-         * 
+         *
          * Headline Container
-         * 
+         *
          */
         $headlineTmplId = $this->insertHeadLineTemplate();
         // Insert elements
@@ -77,18 +77,18 @@ class m160907_175706_default_templates extends Migration
         $this->insertTemplateElement($headlineTmplId, 'background', FileContent::className());
         
         /**
-         * 
+         *
          * Article Container
-         * 
+         *
          */
         $articlelineTmplId = $this->insertArticleTemplate();
         // Insert elements
         $this->insertRichtextTemplateElement($articlelineTmplId, 'content', $this->getDefaultArticleRichtext());
         
         /**
-         * 
+         *
          * Snippet Layout Template
-         * 
+         *
          */
         $snippetLayoutTemplateId = $this->insertSnippetLayoutTemplate();
         
@@ -99,7 +99,7 @@ class m160907_175706_default_templates extends Migration
         $this->insertSilent('custom_pages_template_container_content_definition', ['allow_multiple' => 0, 'is_inline' => 0, 'is_default' => 1]);
         $definitionId = $this->db->getLastInsertID();
         $this->insertSilent('custom_pages_template_container_content_template', ['template_id' => $headlineTmplId, 'definition_id' => $definitionId]);
-        $this->insertSilent('custom_pages_template_container_content', ['definition_id' => $definitionId]);  
+        $this->insertSilent('custom_pages_template_container_content', ['definition_id' => $definitionId]);
         $this->insertSilent('custom_pages_template_owner_content', [
                 'element_name' => 'heading',
                 'owner_model' => Template::className(),
@@ -117,7 +117,7 @@ class m160907_175706_default_templates extends Migration
             'name' => 'system_simple_snippet_layout',
             'engine' => 'twig',
             'description' => 'Simple snippet layout with head container and richtext.',
-            'source' => $this->getSnippetLayoutSource(), 
+            'source' => $this->getSnippetLayoutSource(),
             'type' => Template::TYPE_SNIPPED_LAYOUT,
             'created_at' => new \yii\db\Expression('NOW()')]);
 
@@ -130,7 +130,7 @@ class m160907_175706_default_templates extends Migration
             'name' => 'system_two_column_layout',
             'engine' => 'twig',
             'description' => 'Simple two column layout.',
-            'source' => $this->getTwoColumnSource(), 
+            'source' => $this->getTwoColumnSource(),
             'type' => Template::TYPE_LAYOUT,
             'created_at' => new \yii\db\Expression('NOW()')]);
 
@@ -143,7 +143,7 @@ class m160907_175706_default_templates extends Migration
             'name' => 'system_one_column_layout',
             'engine' => 'twig',
             'description' => 'Simple one column layout.',
-            'source' => $this->getOneColumnSource(), 
+            'source' => $this->getOneColumnSource(),
             'type' => Template::TYPE_LAYOUT,
             'created_at' => new \yii\db\Expression('NOW()')]);
 
@@ -203,7 +203,7 @@ class m160907_175706_default_templates extends Migration
             'name' => 'system_headline_container',
             'engine' => 'twig',
             'description' => 'Simple headline row with background image.',
-            'source' => $this->getHeadLineSource(), 
+            'source' => $this->getHeadLineSource(),
             'type' => Template::TYPE_CONTAINER,
             'created_at' => new \yii\db\Expression('NOW()')]);
 
@@ -216,7 +216,7 @@ class m160907_175706_default_templates extends Migration
             'name' => 'system_article_container',
             'engine' => 'twig',
             'description' => 'Simple richtext article.',
-            'source' => $this->getArticleSource(), 
+            'source' => $this->getArticleSource(),
             'type' => Template::TYPE_CONTAINER,
             'created_at' => new \yii\db\Expression('NOW()')]);
 
@@ -284,7 +284,7 @@ EOT;
     }
     
     
-     public function getArticleSource()
+    public function getArticleSource()
     {
         return <<< EOT
 <div style="margin-top:15px;">

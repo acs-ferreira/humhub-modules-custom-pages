@@ -17,5 +17,4 @@ class CkEditorAssetBundle extends AssetBundle
         $this->sourcePath = dirname(dirname(__FILE__)) . '/resources/ckeditor';
         parent::init();
     }
-
 }

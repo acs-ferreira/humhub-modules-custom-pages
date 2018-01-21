@@ -24,17 +24,17 @@ use yii\helpers\Html;
                         <small class="pull-right">
                             <span class="label label-success"><?= $contentItem->ownerContent->label ?></span>
                         </small>
-                        <?php if ($contentItem->content->isNewRecord): ?>
+                        <?php if ($contentItem->content->isNewRecord) : ?>
                             <small class="pull-right" style="margin-right: 2px">
                                 <span class="label label-warning"><?= Yii::t('CustomPagesModule.widgets_views_editMultipleElements', 'Empty') ?></span>
                             </small>
                         <?php endif; ?>
-                        <?php if ($isContainer && $contentItem->content->definition->allow_multiple): ?>
+                        <?php if ($isContainer && $contentItem->content->definition->allow_multiple) : ?>
                             <small class="pull-right" style="margin-right: 2px">
                                 <span class="label label-success"><?= Yii::t('CustomPagesModule.widgets_views_editMultipleElements', 'Multiple') ?></span>
                             </small>
                         <?php endif; ?>
-                        <?php if ($isContainer && $contentItem->content->definition->is_inline): ?>
+                        <?php if ($isContainer && $contentItem->content->definition->is_inline) : ?>
                             <small class="pull-right" style="margin-right: 2px">
                                 <span class="label label-success"><?= Yii::t('CustomPagesModule.widgets_views_editMultipleElements', 'Inline') ?></span>
                             </small>
@@ -62,7 +62,7 @@ use yii\helpers\Html;
                     <?= Yii::t('CustomPagesModule.base', 'Save'); ?>
                 </button>
                 <button type="button" class="btn btn-default" data-dismiss="modal"><?= Yii::t('CustomPagesModule.base', 'Cancel'); ?></button>
-            <?php else: ?>
+            <?php else : ?>
                 <button type="button" class="btn btn-primary" data-dismiss="modal"><?= Yii::t('CustomPagesModule.base', 'Back'); ?></button>
             <?php endif; ?>
         </div>

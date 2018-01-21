@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   '<strong>Create</strong> page' => '<strong>Criar</strong> página',
   '<strong>Edit</strong> page' => '<strong>Alterar</strong> página',
   'Content' => 'Conteúdo',
@@ -10,4 +10,4 @@ return array (
   'Save' => 'Salvar',
   'Sort Order' => 'Ordem de Classificação',
   'URL' => 'Endereço',
-);
+];

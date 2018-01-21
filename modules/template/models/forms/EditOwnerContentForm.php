@@ -14,7 +14,7 @@ use humhub\modules\custom_pages\modules\template\models\OwnerContent;
 
 /**
  * This form is used for editing OwnerContent entries.
- * 
+ *
  * @author buddha
  */
 class EditOwnerContentForm extends TemplateElementForm
@@ -27,18 +27,18 @@ class EditOwnerContentForm extends TemplateElementForm
     
     /**
      * The content owner instance.
-     * @var \humhub\modules\custom_pages\modules\template\models\TemplateContentOwner 
+     * @var \humhub\modules\custom_pages\modules\template\models\TemplateContentOwner
      */
     public $owner;
     
     /**
      * The OwnerContent instance to be edited, before successfully saving the form
      * this variable is possibly assigned with a default or empty OwnerContent instance.
-     * 
+     *
      * After saving the form the $ownerContent will be replaced with the actual OwnerContent
      * owned by $owner.
-     * 
-     * @var \humhub\modules\custom_pages\modules\template\models\OwnerContent 
+     *
+     * @var \humhub\modules\custom_pages\modules\template\models\OwnerContent
      */
     public $ownerContent;
     
@@ -55,24 +55,24 @@ class EditOwnerContentForm extends TemplateElementForm
     public function setScenario($value)
     {
         parent::setScenario($value);
-        if($this->element != null) {
+        if ($this->element != null) {
             $this->element->scenario = $value;
         }
-        if($this->content != null) {
+        if ($this->content != null) {
             $this->content->scenario = $value;
         }
     }
 
     /**
      * Sets the initial form data as $owner, $element and $content.
-     * 
+     *
      * @param string $ownerModel owner model classname.
      * @param integer $ownerId owner model id
      * @param string $elementName the placeholder name which should be filled with the edited content.
      */
     public function setElementData($ownerModel, $ownerId, $elementName)
     {
-        $this->owner = call_user_func($ownerModel."::findOne", ['id' => $ownerId]);
+        $this->owner = call_user_func($ownerModel . '::findOne', ['id' => $ownerId]);
         $this->element = TemplateElement::findOne(['template_id' => $this->owner->getTemplateId(), 'name' => $elementName]);
 
         // Search for current ownerContent for this placeholder/owner
@@ -91,16 +91,16 @@ class EditOwnerContentForm extends TemplateElementForm
 
     /**
      * Validates and saves the content instance.
-     * 
+     *
      * If the current $ownerContent instance is a default OwnerContent we create a new OwnerContent instance for
      * the given owner and overwrite the current $ownerContent variable.
-     * 
+     *
      * @return boolean
      */
     public function save()
     {
         if ($this->validate()) {
-            if($this->ownerContent->isDefault()) {
+            if ($this->ownerContent->isDefault()) {
                 $this->ownerContent = $this->element->saveInstance($this->owner, $this->content, $this->use_default);
             } else {
                 $this->content->save();

@@ -5,7 +5,8 @@ namespace humhub\modules\custom_pages\modules\template\assets;
 use yii\web\AssetBundle;
 
 class InlineEditorAsset extends AssetBundle
-{    
+{
+
     public $jsOptions = ['position' => \yii\web\View::POS_END];
     public $js = [
         'js/humhub.custom_pages.template.editor.js',
@@ -23,5 +24,4 @@ class InlineEditorAsset extends AssetBundle
         $this->sourcePath = dirname(dirname(__FILE__)) . '/resources';
         parent::init();
     }
-
 }

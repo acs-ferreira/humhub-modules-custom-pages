@@ -17,7 +17,7 @@ class TemplatePagePermission
 {
     public static function canEdit()
     {
-        if(isset(Yii::$app->controller->contentContainer)) {
+        if (isset(Yii::$app->controller->contentContainer)) {
             return Yii::$app->controller->contentContainer->isAdmin();
         } else {
             return !Yii::$app->user->isGuest && Yii::$app->user->getIdentity()->isSystemAdmin();
@@ -27,6 +27,4 @@ class TemplatePagePermission
     {
         return !Yii::$app->user->isGuest && Yii::$app->user->getIdentity()->isSystemAdmin();
     }
-    
 }
-

@@ -6,6 +6,6 @@
  * Time: 04:02
  */
 
-return array (
+return  [
     'Use empty content' => 'Leeren Inhalt benutzen',
-);
+];

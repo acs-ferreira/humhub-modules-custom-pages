@@ -31,5 +31,4 @@ class EditContainerItemModal extends \humhub\components\Widget
             'action' => $this->action
         ]);
     }
-
 }

@@ -25,7 +25,7 @@ use humhub\modules\custom_pages\modules\template\components\TemplateCache;
  *
  * This controller is designed to support different template types by setting the $type
  * and $indexHelp attributes.
- * 
+ *
  * @author buddha
  */
 class AdminController extends \humhub\modules\admin\components\Controller
@@ -33,20 +33,20 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Defines the template type this controller should manage.
-     * 
-     * @var type 
+     *
+     * @var type
      */
     public $type;
 
     /**
      * Defines the index help text for the given template type.
-     * @var type 
+     * @var type
      */
     public $indexHelp;
 
     /**
      * Returns a searchable gridview with all avialable templates of the given type.
-     * 
+     *
      * @return type
      */
     public function actionIndex()
@@ -64,7 +64,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Action used for creating and editing Template instances.
-     * 
+     *
      * @return string result view
      */
     public function actionEdit($id = null)
@@ -89,7 +89,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Used to edit the source of a template.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -134,7 +134,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Used to add elements to a template.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -161,9 +161,9 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Used to edit the element of a template.
-     * 
+     *
      * This controller expects an id request parameter.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException if no template id was given.
      */
@@ -213,7 +213,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * This action will render a preview of a given template.
-     * 
+     *
      * @param type $id
      * @param type $editView
      * @param type $reload
@@ -241,7 +241,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Creates a json result array used by multiple actions.
-     * 
+     *
      * @param boolean $success defines if the process was successfull e.g. saving an element
      * @param mixed $content content result
      * @param mixed $form Form model
@@ -259,7 +259,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Will delete a given template model instance.
-     * 
+     *
      * @return type
      */
     public function actionDeleteTemplate($id)
@@ -275,9 +275,9 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * Will delete an template element model instance.
-     * 
+     *
      * This action requres a confirmation.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -295,7 +295,7 @@ class AdminController extends \humhub\modules\admin\components\Controller
 
     /**
      * This action is used to edit multiple elements.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -329,5 +329,4 @@ class AdminController extends \humhub\modules\admin\components\Controller
     {
         return $this->renderPartial('@custom_pages/modules/template/views/admin/info');
     }
-
 }

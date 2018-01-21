@@ -40,5 +40,4 @@ abstract class ContentDefinition extends ActiveRecord
     {
         parent::load($data, $formName);
     }
-
 }

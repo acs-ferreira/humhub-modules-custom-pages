@@ -6,6 +6,6 @@
  * Time: 02:18
  */
 
-return array (
+return  [
     'Invalid request data!' => 'Ungültige Anfrage Daten!',
-);
+];

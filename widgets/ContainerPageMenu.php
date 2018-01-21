@@ -19,8 +19,8 @@ use yii\helpers\Url;
 class ContainerPageMenu extends \humhub\widgets\BaseMenu
 {
 
-    public $template = "@humhub/widgets/views/tabMenu";
-    public $type = "adminCustomPagesSubNavigation";
+    public $template = '@humhub/widgets/views/tabMenu';
+    public $type = 'adminCustomPagesSubNavigation';
 
     public function init()
     {
@@ -31,7 +31,7 @@ class ContainerPageMenu extends \humhub\widgets\BaseMenu
             'url' => $space->createUrl('/custom_pages/container/list'),
             'sortOrder' => 100,
             'isActive' => (Yii::$app->controller->id == 'container'),
-        ]);  
+        ]);
         
         
         $this->addItem([
@@ -39,9 +39,8 @@ class ContainerPageMenu extends \humhub\widgets\BaseMenu
             'url' => $space->createUrl('/custom_pages/container-snippet/list'),
             'sortOrder' => 200,
             'isActive' => (Yii::$app->controller->id == 'container-snippet'),
-        ]);  
+        ]);
         
         parent::init();
     }
-
 }

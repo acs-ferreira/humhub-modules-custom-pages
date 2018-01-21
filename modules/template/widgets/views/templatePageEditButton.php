@@ -14,7 +14,7 @@ use yii\helpers\Url;
                     <?= Yii::t('CustomPagesModule.views_view_template', 'Page configuration') ?>
                 </a>
             </li>
-            <?php if(humhub\modules\custom_pages\modules\template\models\TemplatePagePermission::canTemplate()): ?>
+            <?php if (humhub\modules\custom_pages\modules\template\models\TemplatePagePermission::canTemplate()) : ?>
                 <li>
                     <a target="_blank"  href="<?= Url::to(['/custom_pages/template/layout-admin/edit-source', 'id' => $templateInstance->template_id, 'sguid' => $sguid]) ?>">
                         <?= Yii::t('CustomPagesModule.views_view_template', 'Edit template') ?>
@@ -34,7 +34,7 @@ use yii\helpers\Url;
         </ul>
     </div>
 
-<?php else: ?>
+<?php else : ?>
     <a id="editPageButton" class="btn btn-primary btn-xs" data-ui-loader style="color:#000;" href="<?= Url::to(['view', 'id' => $pageId, 'editMode' => true, 'sguid' => $sguid]); ?>">
         <i class="fa fa-pencil"></i>    
         <?= Yii::t('CustomPagesModule.modules_template_widgets_views_templatePageEditButton', 'Edit Page') ?>

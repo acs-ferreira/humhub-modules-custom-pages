@@ -25,7 +25,7 @@ class TemplateViewBehavior extends Behavior
     public $_canEdit;
     
     /**
-     * 
+     *
      * @param \humhub\modules\custom_pages\models\CustomContentContainer $page
      * @return string rendered template page
      * @throws \yii\web\HttpException in case the page is protected from non admin access
@@ -35,13 +35,13 @@ class TemplateViewBehavior extends Behavior
         $html = $this->renderTemplate($page);
         $canEdit = $this->isCanEdit();
        
-        if(!$canEdit && $page->admin_only) {
+        if (!$canEdit && $page->admin_only) {
             throw new \yii\web\HttpException(403, 'Access denied!');
         }
         
         return $this->owner->render('template', [
-            'page' => $page, 
-            'editMode' => Yii::$app->request->get('editMode') && $canEdit,  
+            'page' => $page,
+            'editMode' => Yii::$app->request->get('editMode') && $canEdit,
             'canEdit' => $canEdit,
             'html' => $html
         ]);
@@ -56,19 +56,20 @@ class TemplateViewBehavior extends Behavior
         
         $html = '';
         
-        if(!$canEdit && TemplateCache::exists($templateInstance)) {
+        if (!$canEdit && TemplateCache::exists($templateInstance)) {
             $html = TemplateCache::get($templateInstance);
         } else {
             $html = $templateInstance->render($editMode);
-            if(!$canEdit) {
+            if (!$canEdit) {
                 TemplateCache::set($templateInstance, $html);
             }
         }
         return $html;
     }
     
-    public function isCanEdit() {
-        if($this->_canEdit == null) {
+    public function isCanEdit()
+    {
+        if ($this->_canEdit == null) {
             $this->_canEdit = TemplatePagePermission::canEdit();
         }
         return $this->_canEdit;

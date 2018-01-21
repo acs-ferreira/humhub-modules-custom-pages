@@ -12,7 +12,6 @@ use yii\base\Model;
 use yii\data\ActiveDataProvider;
 use \humhub\modules\custom_pages\modules\template\models\Template;
 
-
 /**
  * Description of UserSearch
  *
@@ -49,7 +48,7 @@ class TemplateSearch extends Template
     {
         $query = Template::find();
         
-        if($this->type != null) {
+        if ($this->type != null) {
             $query->where(['type' => $this->type]);
         }
         
@@ -78,5 +77,4 @@ class TemplateSearch extends Template
         $query->andFilterWhere(['like', 'name', $this->name]);
         return $dataProvider;
     }
-
 }

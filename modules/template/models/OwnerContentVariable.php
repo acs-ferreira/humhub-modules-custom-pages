@@ -10,7 +10,7 @@ class OwnerContentVariable extends Model
     public $options = [];
     
     /**
-     * @var OwnerContent 
+     * @var OwnerContent
      */
     public $ownerContent;
     
@@ -41,11 +41,11 @@ class OwnerContentVariable extends Model
     
     public function render($editMode = false)
     {
-        if($editMode) {
+        if ($editMode) {
             $this->options['editMode'] = true;
         }
         
-        if(isset($this->options['editMode']) && $this->options['editMode']) {
+        if (isset($this->options['editMode']) && $this->options['editMode']) {
             $options = array_merge([
                 'empty' => $this->ownerContent->isEmpty(),
                 'owner_content_id' => $this->ownerContent->id,
@@ -56,7 +56,7 @@ class OwnerContentVariable extends Model
             ], $this->options);
             
             // We only need the template_id for container content elements
-            if($this->ownerContent->content_type == ContainerContent::className()) {
+            if ($this->ownerContent->content_type == ContainerContent::className()) {
                 $options['template_id'] = $this->ownerContent->owner->getTemplateId();
             }
         } else {
@@ -64,12 +64,12 @@ class OwnerContentVariable extends Model
         }
         
         try {
-            if(!$this->ownerContent->isEmpty()) {
+            if (!$this->ownerContent->isEmpty()) {
                 return $this->ownerContent->render($options);
-            } else if($this->isEditMode()) {
+            } elseif ($this->isEditMode()) {
                 return $this->ownerContent->renderEmpty($options);
             }
-        } catch(\Exception $e) {
+        } catch (\Exception $e) {
             return strval($e);
         }
         
@@ -81,6 +81,4 @@ class OwnerContentVariable extends Model
         // Note that the editMode can be set to $this->options in this case
         return $this->render();
     }
-    
-    
 }

@@ -23,7 +23,7 @@ use yii\helpers\Url;
     
     <div class="panel-body">
         
-         <?= Html::a('<i class="fa fa-plus"></i> ' . Yii::t('CustomPagesModule.base', 'Create new {type}', ['type' => $type]), ['edit'], ['class' => 'pull-right btn btn-success', 'data-ui-loader']); ?>
+            <?= Html::a('<i class="fa fa-plus"></i> ' . Yii::t('CustomPagesModule.base', 'Create new {type}', ['type' => $type]), ['edit'], ['class' => 'pull-right btn btn-success', 'data-ui-loader']); ?>
     
         
         <?= GridView::widget([
@@ -34,9 +34,9 @@ use yii\helpers\Url;
                     'attribute' => 'id',
                     'options' => ['style' => 'width:40px;'],
                     'format' => 'raw',
-                    'value' => function($data) {
-                return $data->id;
-            },
+                    'value' => function ($data) {
+                        return $data->id;
+                    },
                 ],
                 'name',
                 [
@@ -44,15 +44,15 @@ use yii\helpers\Url;
                     'class' => 'yii\grid\ActionColumn',
                     'options' => ['style' => 'width:80px; min-width:80px;'],
                     'buttons' => [
-                        'view' => function($url, $model) {
+                        'view' => function ($url, $model) {
                             return null;
                         },
-                        'update' => function($url, $model) {
+                        'update' => function ($url, $model) {
                             return Html::a('<i class="fa fa-pencil"></i>', Url::toRoute(['edit-source', 'id' => $model->id]), ['class' => 'btn btn-primary btn-xs tt']);
                         },
-                                'delete' => function($url, $model) {
-                            return Html::a('<i class="fa fa-times"></i>', Url::toRoute(['delete-template', 'id' => $model->id]), ['class' => 'btn btn-danger btn-xs tt']);
-                        }
+                                'delete' => function ($url, $model) {
+                                    return Html::a('<i class="fa fa-times"></i>', Url::toRoute(['delete-template', 'id' => $model->id]), ['class' => 'btn btn-danger btn-xs tt']);
+                                }
                             ],
                         ],
                     ],

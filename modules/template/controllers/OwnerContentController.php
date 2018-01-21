@@ -31,25 +31,25 @@ class OwnerContentController extends \humhub\components\Controller
 
     /**
      * Owner Model Class of the TemplateContentOwner.
-     * @var string 
+     * @var string
      */
     public $ownerModel;
 
     /**
      * Owner Model Id of the TemplateContentOwner.
-     * @var integer 
+     * @var integer
      */
     public $ownerId;
 
     /**
      * The placeholder name of the TemplateElement.
-     * @var string 
+     * @var string
      */
     public $elementName;
 
     /**
      * Edits the content of a specific OwnerContent for the given TemplateContentOwner.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -80,7 +80,7 @@ class OwnerContentController extends \humhub\components\Controller
 
     /**
      * Used to delete owner content models.
-     * 
+     *
      * @return type
      * @throws \yii\web\HttpException
      */
@@ -102,7 +102,7 @@ class OwnerContentController extends \humhub\components\Controller
         // Do not allow the deletion of default content this is only allowed in admin controller.
         if ($form->ownerContent->isDefault()) {
             throw new \yii\web\HttpException(403, Yii::t('CustomPagesModule.controllers_TemplateController', 'You are not allowed to delete default content!'));
-        } else if ($form->ownerContent->isEmpty()) {
+        } elseif ($form->ownerContent->isEmpty()) {
             throw new \yii\web\HttpException(400, Yii::t('CustomPagesModule.controllers_TemplateController', 'Empty content elements cannot be delted!'));
         }
 
@@ -121,7 +121,7 @@ class OwnerContentController extends \humhub\components\Controller
 
     /**
      * Action for editing all owner content models for a given template instance in one view.
-     * 
+     *
      * @param type $id
      * @return type
      */
@@ -148,7 +148,7 @@ class OwnerContentController extends \humhub\components\Controller
 
     /**
      * Creates a json result array used by multiple actions.
-     * 
+     *
      * @param boolean $success defines if the process was successfull e.g. saving an element
      * @param mixed $content content result
      * @param mixed $form Form model
@@ -164,5 +164,4 @@ class OwnerContentController extends \humhub\components\Controller
         $json['name'] = Yii::$app->request->get('name');
         return $this->asJson($json);
     }
-
 }

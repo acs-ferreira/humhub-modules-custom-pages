@@ -13,7 +13,7 @@ use humhub\modules\custom_pages\modules\template\models\Template;
  *
  * Pages are global custom page container which can be added to the main navigation or
  * user account setting navigation.
- * 
+ *
  * The followings are the available columns in table 'custom_pages_page':
  * @property integer $id
  * @property integer $type
@@ -56,7 +56,8 @@ class Page extends ActiveRecord implements CustomContentContainer
     /**
      * @inheritdoc
      */
-    public function getPageContentProperty() {
+    public function getPageContentProperty()
+    {
         return 'content';
     }
     
@@ -72,8 +73,8 @@ class Page extends ActiveRecord implements CustomContentContainer
 
 
 
-        $result['navigation_class'] = Yii::t('CustomPagesModule.models_Page','Navigation');
-        $result['url'] = Yii::t('CustomPagesModule.models_Page','Url shortcut');
+        $result['navigation_class'] = Yii::t('CustomPagesModule.models_Page', 'Navigation');
+        $result['url'] = Yii::t('CustomPagesModule.models_Page', 'Url shortcut');
         return $result;
     }
 

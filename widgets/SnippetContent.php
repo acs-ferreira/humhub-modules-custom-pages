@@ -25,9 +25,8 @@ class SnippetContent extends \yii\base\Widget
     public function run()
     {
         return $this->render('snippet', [
-            'model' => $this->model, 
+            'model' => $this->model,
             'content' => $this->content,
             'navigation' => $this->navigation]);
     }
-
 }

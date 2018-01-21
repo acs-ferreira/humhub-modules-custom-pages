@@ -11,7 +11,7 @@ use humhub\modules\custom_pages\modules\template\models\Template;
  * This is the model class for table "custom_pages_container_snipped".
  *
  * ContainerSnippets are snippets which can be added to a space sidebar.
- * 
+ *
  * The followings are the available columns in table 'custom_pages_container_page':
  * @property integer $id
  * @property integer $type
@@ -47,7 +47,8 @@ class ContainerSnippet extends ContainerPage
     /**
      * @inheritdoc
      */
-    public function getPageContentProperty() {
+    public function getPageContentProperty()
+    {
         return 'page_content';
     }
 

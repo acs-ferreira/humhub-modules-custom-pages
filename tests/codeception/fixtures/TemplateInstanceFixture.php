@@ -28,5 +28,4 @@ class TemplateInstanceFixture extends ActiveFixture
         parent::afterLoad();
         $this->db->createCommand()->setSql('SET FOREIGN_KEY_CHECKS = 1')->execute();
     }
-
 }

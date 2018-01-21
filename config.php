@@ -32,4 +32,3 @@ return [
         ['class' => 'humhub\modules\space\widgets\Sidebar', 'event' => BaseMenu::EVENT_INIT, 'callback' => ['humhub\modules\custom_pages\Events', 'onSpaceSidebarInit']],
     ],
 ];
-?>

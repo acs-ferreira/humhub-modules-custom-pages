@@ -17,13 +17,13 @@
  */
 abstract class Twig_Template implements Twig_TemplateInterface
 {
-    protected static $cache = array();
+    protected static $cache = [];
 
     protected $parent;
-    protected $parents = array();
+    protected $parents = [];
     protected $env;
-    protected $blocks = array();
-    protected $traits = array();
+    protected $blocks = [];
+    protected $traits = [];
 
     /**
      * Constructor.
@@ -47,7 +47,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      */
     public function getEnvironment()
     {
-        @trigger_error('The '.__METHOD__.' method is deprecated since version 1.20 and will be removed in 2.0.', E_USER_DEPRECATED);
+        @trigger_error('The ' . __METHOD__ . ' method is deprecated since version 1.20 and will be removed in 2.0.', E_USER_DEPRECATED);
 
         return $this->env;
     }
@@ -116,7 +116,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      *
      * @internal
      */
-    public function displayParentBlock($name, array $context, array $blocks = array())
+    public function displayParentBlock($name, array $context, array $blocks = [])
     {
         $name = (string) $name;
 
@@ -142,7 +142,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      *
      * @internal
      */
-    public function displayBlock($name, array $context, array $blocks = array(), $useBlocks = true)
+    public function displayBlock($name, array $context, array $blocks = [], $useBlocks = true)
     {
         $name = (string) $name;
 
@@ -200,7 +200,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      *
      * @internal
      */
-    public function renderParentBlock($name, array $context, array $blocks = array())
+    public function renderParentBlock($name, array $context, array $blocks = [])
     {
         ob_start();
         $this->displayParentBlock($name, $context, $blocks);
@@ -223,7 +223,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      *
      * @internal
      */
-    public function renderBlock($name, array $context, array $blocks = array(), $useBlocks = true)
+    public function renderBlock($name, array $context, array $blocks = [], $useBlocks = true)
     {
         ob_start();
         $this->displayBlock($name, $context, $blocks, $useBlocks);
@@ -350,7 +350,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
     /**
      * {@inheritdoc}
      */
-    public function display(array $context, array $blocks = array())
+    public function display(array $context, array $blocks = [])
     {
         $this->displayWithErrorHandling($this->env->mergeGlobals($context), array_merge($this->blocks, $blocks));
     }
@@ -381,7 +381,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
         return ob_get_clean();
     }
 
-    protected function displayWithErrorHandling(array $context, array $blocks = array())
+    protected function displayWithErrorHandling(array $context, array $blocks = [])
     {
         try {
             $this->doDisplay($context, $blocks);
@@ -409,7 +409,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      * @param array $context An array of parameters to pass to the template
      * @param array $blocks  An array of blocks to pass to the template
      */
-    abstract protected function doDisplay(array $context, array $blocks = array());
+    abstract protected function doDisplay(array $context, array $blocks = []);
 
     /**
      * Returns a variable from the context.
@@ -459,7 +459,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
      *
      * @throws Twig_Error_Runtime if the attribute does not exist and Twig is running in strict mode and $isDefinedTest is false
      */
-    protected function getAttribute($object, $item, array $arguments = array(), $type = self::ANY_CALL, $isDefinedTest = false, $ignoreStrictCheck = false)
+    protected function getAttribute($object, $item, array $arguments = [], $type = self::ANY_CALL, $isDefinedTest = false, $ignoreStrictCheck = false)
     {
         // array
         if (self::METHOD_CALL !== $type) {
@@ -550,7 +550,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
             // get_class_methods returns all methods accessible in the scope, but we only want public ones to be accessible in templates
             if ($object instanceof self) {
                 $ref = new ReflectionClass($class);
-                $methods = array();
+                $methods = [];
 
                 foreach ($ref->getMethods(ReflectionMethod::IS_PUBLIC) as $refMethod) {
                     $methodName = strtolower($refMethod->name);
@@ -571,10 +571,10 @@ abstract class Twig_Template implements Twig_TemplateInterface
         $lcItem = strtolower($item);
         if (isset(self::$cache[$class]['methods'][$lcItem])) {
             $method = (string) $item;
-        } elseif (isset(self::$cache[$class]['methods']['get'.$lcItem])) {
-            $method = 'get'.$item;
-        } elseif (isset(self::$cache[$class]['methods']['is'.$lcItem])) {
-            $method = 'is'.$item;
+        } elseif (isset(self::$cache[$class]['methods']['get' . $lcItem])) {
+            $method = 'get' . $item;
+        } elseif (isset(self::$cache[$class]['methods']['is' . $lcItem])) {
+            $method = 'is' . $item;
         } elseif (isset(self::$cache[$class]['methods']['__call'])) {
             $method = (string) $item;
             $call = true;
@@ -601,7 +601,7 @@ abstract class Twig_Template implements Twig_TemplateInterface
         // Some objects throw exceptions when they have __call, and the method we try
         // to call is not supported. If ignoreStrictCheck is true, we should return null.
         try {
-            $ret = call_user_func_array(array($object, $method), $arguments);
+            $ret = call_user_func_array([$object, $method], $arguments);
         } catch (BadMethodCallException $e) {
             if ($call && ($ignoreStrictCheck || !$this->env->isStrictVariables())) {
                 return;

@@ -111,7 +111,7 @@ class ContainerContent extends TemplateContentActiveRecord
     {
         $options['jsWidget'] = 'custom_pages.template.TemplateContainer';
         return $this->renderEmptyDiv(Yii::t('CustomPagesModule.models_Container', 'Empty <br />Container'), $options, [
-            'class' => 'emptyContainerBlock', 
+            'class' => 'emptyContainerBlock',
             'data-template-multiple' => $this->definition->allow_multiple
          ]);
     }
@@ -150,7 +150,7 @@ class ContainerContent extends TemplateContentActiveRecord
             ContainerContentItem::decrementBetween($this->id, $oldIndex, $item->sort_order);
 
             $item->save();
-        } else if ($step < 0 && $item->sort_order != 0) {
+        } elseif ($step < 0 && $item->sort_order != 0) {
             $oldIndex = $item->sort_order;
             $newIndex = $oldIndex + $step;
             $item->sort_order = ($newIndex > 0) ? $newIndex : 0;
@@ -210,5 +210,4 @@ class ContainerContent extends TemplateContentActiveRecord
                     'model' => $this
         ]);
     }
-
 }

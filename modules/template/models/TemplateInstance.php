@@ -48,14 +48,14 @@ class TemplateInstance extends ActiveRecord implements TemplateContentOwner
      */
     public function afterDelete()
     {
-        forEach (OwnerContent::findByOwner($this)->all() as $content) {
+        foreach (OwnerContent::findByOwner($this)->all() as $content) {
             $content->delete();
         }
     }
 
     /**
      * Returns the default element of the element identified by $elementName of the given TemplateInstance identified by $id.
-     * 
+     *
      * @param \humhub\modules\custom_pages\modules\template\models\TemplateInstance|integer $id
      * @param string $elementName
      * @return type
@@ -98,5 +98,4 @@ class TemplateInstance extends ActiveRecord implements TemplateContentOwner
             $container->delete();
         }
     }
-
 }

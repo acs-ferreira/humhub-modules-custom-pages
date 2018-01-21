@@ -33,7 +33,7 @@ class Twig_Node implements Twig_NodeInterface
      * @param int    $lineno     The line number
      * @param string $tag        The tag name associated with the Node
      */
-    public function __construct(array $nodes = array(), array $attributes = array(), $lineno = 0, $tag = null)
+    public function __construct(array $nodes = [], array $attributes = [], $lineno = 0, $tag = null)
     {
         $this->nodes = $nodes;
         $this->attributes = $attributes;
@@ -43,19 +43,19 @@ class Twig_Node implements Twig_NodeInterface
 
     public function __toString()
     {
-        $attributes = array();
+        $attributes = [];
         foreach ($this->attributes as $name => $value) {
             $attributes[] = sprintf('%s: %s', $name, str_replace("\n", '', var_export($value, true)));
         }
 
-        $repr = array(get_class($this).'('.implode(', ', $attributes));
+        $repr = [get_class($this) . '(' . implode(', ', $attributes)];
 
         if (count($this->nodes)) {
             foreach ($this->nodes as $name => $node) {
                 $len = strlen($name) + 4;
-                $noderepr = array();
+                $noderepr = [];
                 foreach (explode("\n", (string) $node) as $line) {
-                    $noderepr[] = str_repeat(' ', $len).$line;
+                    $noderepr[] = str_repeat(' ', $len) . $line;
                 }
 
                 $repr[] = sprintf('  %s: %s', $name, ltrim(implode("\n", $noderepr)));

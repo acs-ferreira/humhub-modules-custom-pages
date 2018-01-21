@@ -9,6 +9,7 @@ use humhub\modules\search\interfaces\Searchable;
 use humhub\modules\custom_pages\components\Container;
 use humhub\modules\custom_pages\modules\template\models\Template;
 use humhub\modules\custom_pages\models\CustomContentContainer;
+
 /**
  * This is the model class for table "custom_pages_container_page".
  *
@@ -79,7 +80,7 @@ class ContainerPage extends ContentActiveRecord implements Searchable, CustomCon
         $result = $this->defaultAttributeLabels();
         $result['in_new_window'] = Yii::t('CustomPagesModule.models_ContainerPage', 'Open in new window');
 
-        if($this->isType(Container::TYPE_PHP)) {
+        if ($this->isType(Container::TYPE_PHP)) {
             $contentLabel = Yii::t('CustomPagesModule.models_Page', 'View');
         } else {
             $contentLabel = Yii::t('CustomPagesModule.components_Container', 'Content');
@@ -101,7 +102,8 @@ class ContainerPage extends ContentActiveRecord implements Searchable, CustomCon
     /**
      * @inheritdoc
      */
-    public function getPageContentProperty() {
+    public function getPageContentProperty()
+    {
         return 'page_content';
     }
 
@@ -178,5 +180,4 @@ class ContainerPage extends ContentActiveRecord implements Searchable, CustomCon
         $settings = new SettingsForm();
         return $settings->phpContainerPagePath;
     }
-
 }

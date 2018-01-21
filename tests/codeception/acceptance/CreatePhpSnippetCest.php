@@ -34,7 +34,7 @@ class CreatePhpSnippetCest
         $I->fillField('Snippet[title]', 'PHP snippet');
         $I->selectOption('Snippet[content]', ['value' => 'test_snippet']);
         $I->selectOption('Snippet[sidebar]', ['value' => 'Dasboard']);
-        $I->selectOption('Snippet[icon]',  ['value' => 'fa-adn']);
+        $I->selectOption('Snippet[icon]', ['value' => 'fa-adn']);
         $I->click('Save');
         $I->wait(1);
 

@@ -63,7 +63,7 @@ class m170413_085114_download_link_template extends Migration
             'name' => 'system_download_item',
             'engine' => 'twig',
             'description' => 'Single download item.',
-            'source' => $this->getDownloadItemContent(), 
+            'source' => $this->getDownloadItemContent(),
             'type' => Template::TYPE_CONTAINER,
             'created_at' => new \yii\db\Expression('NOW()')]);
 
@@ -85,7 +85,7 @@ EOT;
             'name' => 'system_download_list',
             'engine' => 'twig',
             'description' => 'File download list.',
-            'source' => $this->getDownloadListContent(), 
+            'source' => $this->getDownloadListContent(),
             'type' => Template::TYPE_CONTAINER,
             'created_at' => new \yii\db\Expression('NOW()')]);
 

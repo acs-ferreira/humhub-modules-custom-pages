@@ -27,7 +27,6 @@ class uninstall extends Migration
         
         $this->dropTable('custom_pages_container_snippet');
         $this->dropTable('custom_pages_snippet');
-        
     }
 
     public function down()
@@ -35,5 +34,4 @@ class uninstall extends Migration
         echo "uninstall does not support migration down.\n";
         return false;
     }
-
 }

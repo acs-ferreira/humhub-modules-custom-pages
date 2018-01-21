@@ -1,5 +1,5 @@
 <?php
-return array (
+return  [
   'Allows to add pages (markdown, iframe or links) to the space navigation' => 'Permite adicionar páginas (markdown, iframe ou links) na navegação do espaço',
   'Create new Page' => 'Criar nova página',
   'Custom Pages' => 'Páginas Personalizadas',
@@ -16,4 +16,4 @@ return array (
   'Type' => 'Tipo',
   'User Account Menu (Settings)' => 'Menu de Conta do Usuário (Configurações)',
   'Without adding to navigation (Direct link)' => 'Sem adicionar à navegação (Link direto)',
-);
+];

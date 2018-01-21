@@ -37,7 +37,7 @@ class ContentFormItem extends \yii\base\Model
         $this->content->scenario = $this->scenario;
     }
 
-    public function load($data, $formName = NULL)
+    public function load($data, $formName = null)
     {
         if (!isset($data['Content']) || !isset($data['Content'][$this->key])) {
             return false;
@@ -88,5 +88,4 @@ class ContentFormItem extends \yii\base\Model
         
         return true;
     }
-
 }
